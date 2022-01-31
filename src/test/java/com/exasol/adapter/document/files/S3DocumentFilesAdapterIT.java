@@ -25,8 +25,6 @@ import com.exasol.dbbuilder.dialects.exasol.VirtualSchema;
 @Testcontainers
 class S3DocumentFilesAdapterIT extends AbstractDocumentFilesAdapterIT {
     private static final GcsTestSetup GCS_TEST_SETUP = new OnlineGcsTestSetup();
-    private static final String CACHE_BUCKET_NAME = "persistent-s3-vs-test-file-cache";
-    private static final String SMALL_JSON_FILES_FIXTURE_BUCKET = "persistent-small-json-files-test-fixture";
     private static IntegrationTestSetup SETUP;
     private static TestBucket testBucket;
 
@@ -91,8 +89,6 @@ class S3DocumentFilesAdapterIT extends AbstractDocumentFilesAdapterIT {
         final DatabaseObjectException exception = assertThrows(DatabaseObjectException.class,
                 virtualSchemaBuilder::build);
         assertThat(exception.getCause().getMessage(), containsString(
-                "E-VSD-94: Invalid connection. The connection definition has a invalid syntax. Please check the user-guide at: https://github.com/exasol/s3-document-files-virtual-schema/blob/main/doc/user_guide/user_guide.md."));
+                "E-VSD-94: Invalid connection. The connection definition has a invalid syntax. Please check the user-guide at: https://github.com/exasol/google-cloud-storage-document-files-virtual-schema/blob/main/doc/user_guide/user_guide.md."));
     }
-
-    // TODO add small JSON files test
 }

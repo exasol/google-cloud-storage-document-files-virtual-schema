@@ -427,6 +427,7 @@
                     </modules>
                     <excludedFiles>
                         <excludedFile>.github/workflows/release_droid_prepare_original_checksum.yml</excludedFile>
+                        <excludedFile>.github/workflows/ci-build-next-java.yml</excludedFile>
                     </excludedFiles>
                     <linkReplacements>
                         <linkReplacement>

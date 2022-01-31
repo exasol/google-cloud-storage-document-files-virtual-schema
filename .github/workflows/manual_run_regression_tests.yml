@@ -40,7 +40,9 @@ jobs:
           DEPUTY: ${{ secrets.AWS_TAG_DEPUTY }}
       - name: Write google-key.json
         run: |
-          echo "${{ secrets.GC_KEY }}" > google-key.json
+          echo "$GC_KEY" > google-key.json
+        env:
+          GC_KEY: ${{ secrets.GC_KEY }}n
       - name: Run tests and build with Maven
         run: mvn --batch-mode --update-snapshots clean verify -DtrimStackTrace=false -PregressionTests -Dtest.coverage=false -Derror-code-crawler.skip=true -Dmaven.javadoc.skip=true -Dproject-keeper.skip=true
         env:
