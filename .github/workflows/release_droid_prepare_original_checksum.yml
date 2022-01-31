@@ -22,9 +22,9 @@ jobs:
           key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
           restore-keys: |
             ${{ runner.os }}-maven-
-      - name: Write google-key.yml
+      - name: Write google-key.json
         run: |
-          echo "${{ secrets.GC_KEY }}" > google-key.yml
+          echo "${{ secrets.GC_KEY }}" > google-key.json
       - name: Run tests and build with Maven
         run: mvn -B clean verify --file pom.xml
         env:
