@@ -1,0 +1,4 @@
+error-tags:
+  VS-GCS:
+    packages:
+      - com.exasol.adapter.document.files
