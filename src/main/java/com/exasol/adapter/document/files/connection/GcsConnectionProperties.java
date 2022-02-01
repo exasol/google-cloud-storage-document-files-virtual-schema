@@ -21,6 +21,6 @@ public class GcsConnectionProperties {
      * @return {@code true} if hat has
      */
     public boolean hasHostOverride() {
-        return this.gcHost != null && !this.gcHost.isBlank() && !this.gcHost.equals("amazonaws.com");
+        return this.gcHost != null && !this.gcHost.isBlank();
     }
 }
