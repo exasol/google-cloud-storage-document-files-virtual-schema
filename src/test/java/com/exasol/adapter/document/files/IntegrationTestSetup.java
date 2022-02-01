@@ -94,7 +94,7 @@ public class IntegrationTestSetup implements AutoCloseable {
     }
 
     public ConnectionDefinition createConnectionDefinition(final JsonObjectBuilder details) {
-        return this.exasolObjectFactory.createConnectionDefinition("S3_CONNECTION_" + System.currentTimeMillis(), "",
+        return this.exasolObjectFactory.createConnectionDefinition("GCS_CONNECTION_" + System.currentTimeMillis(), "",
                 "", toJson(details.build()));
     }
 

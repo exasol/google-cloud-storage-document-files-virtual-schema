@@ -8,7 +8,7 @@ public class ExecutorServiceFactory implements AutoCloseable {
     private ExecutorService service = null;
 
     /**
-     * Ger an {@link ExecutorService}.
+     * Get an {@link ExecutorService}.
      * 
      * @return {@link ExecutorService}
      */

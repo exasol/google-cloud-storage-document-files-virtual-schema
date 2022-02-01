@@ -12,7 +12,7 @@ import com.google.cloud.storage.Blob;
 import com.google.cloud.storage.Bucket;
 
 /**
- * {@link RemoteFileContent} for google-cloud-storage.
+ * {@link RemoteFileContent} for Google Cloud Storage.
  */
 class GcsRemoteFileContent implements RemoteFileContent {
     private static final int SIZE_1_MB = 1000000;
@@ -23,7 +23,7 @@ class GcsRemoteFileContent implements RemoteFileContent {
     /**
      * Create a new instance of {@link GcsRemoteFileContent}.
      * 
-     * @param bucket     GCS client for the bucket
+     * @param bucket     GCS bucket
      * @param fileToRead file to read
      */
     public GcsRemoteFileContent(final Bucket bucket, final GcsObjectDescription fileToRead,

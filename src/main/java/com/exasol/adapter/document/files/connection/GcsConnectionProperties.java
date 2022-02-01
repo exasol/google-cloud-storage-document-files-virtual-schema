@@ -4,7 +4,7 @@ import lombok.Builder;
 import lombok.Data;
 
 /**
- * Connection properties for google-cloud-storage.
+ * Connection properties for Google Cloud Storage.
  */
 @Data
 @Builder
@@ -18,7 +18,7 @@ public class GcsConnectionProperties {
     /**
      * Get if this connection overrides the Google Cloud entrypoint.
      * 
-     * @return {@code true} if hat has
+     * @return {@code true} if it has override entrypoint
      */
     public boolean hasHostOverride() {
         return this.gcHost != null && !this.gcHost.isBlank();

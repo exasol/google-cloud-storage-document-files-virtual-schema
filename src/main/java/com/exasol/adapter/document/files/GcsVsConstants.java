@@ -1,7 +1,7 @@
 package com.exasol.adapter.document.files;
 
 /**
- * Constants for the Google-Cloud-Storage virtual schema.
+ * Constants for the Google Cloud Storage Virtual Schema.
  */
 public class GcsVsConstants {
     /** User guide link */

@@ -23,7 +23,7 @@ import com.exasol.dbbuilder.dialects.exasol.VirtualSchema;
 
 @Tag("integration")
 @Testcontainers
-class S3DocumentFilesAdapterIT extends AbstractDocumentFilesAdapterIT {
+class GcsDocumentFilesAdapterIT extends AbstractDocumentFilesAdapterIT {
     private static final GcsTestSetup GCS_TEST_SETUP = new OnlineGcsTestSetup();
     private static IntegrationTestSetup SETUP;
     private static TestBucket testBucket;
@@ -82,7 +82,7 @@ class S3DocumentFilesAdapterIT extends AbstractDocumentFilesAdapterIT {
         SETUP.getBucket().uploadInputStream(() -> getClass().getClassLoader().getResourceAsStream("simpleMapping.json"),
                 "mapping.json");
         final ConnectionDefinition connection = SETUP.getExasolObjectFactory()
-                .createConnectionDefinition("EMPTY_S3_CONNECTION", "", "", "{");
+                .createConnectionDefinition("EMPTY_GCS_CONNECTION", "", "", "{");
         final VirtualSchema.Builder virtualSchemaBuilder = SETUP
                 .getPreconfiguredVirtualSchemaBuilder("EMPTY_CONNECTION_SCHEMA").connectionDefinition(connection)
                 .properties(Map.of("MAPPING", "/bfsdefault/default/mapping.json"));

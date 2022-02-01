@@ -13,7 +13,7 @@ import com.google.auth.oauth2.GoogleCredentials;
 import com.google.cloud.storage.*;
 
 /**
- * File finder for files on google-cloud-storage.
+ * File finder for files on Google Cloud Storage.
  */
 public class GcsRemoteFileFinder implements RemoteFileFinder {
     private final StringFilter filePattern;
@@ -46,8 +46,8 @@ public class GcsRemoteFileFinder implements RemoteFileFinder {
             return GoogleCredentials.fromStream(inputStream);
         } catch (final IOException exception) {
             throw new IllegalArgumentException(
-                    ExaError.messageBuilder("E-VS-GCS-9").message("Failed to read google-key definition.")
-                            .mitigation("Please check the value of gsKey.").toString());
+                    ExaError.messageBuilder("E-VS-GCS-9").message("Failed to read Google key definition.")
+                            .mitigation("Please check the value of gcKey.").toString());
         }
     }
 
@@ -65,8 +65,10 @@ public class GcsRemoteFileFinder implements RemoteFileFinder {
     }
 
     /**
-     * Get a list of object keys. This method only applies the filters that can be applied on GCS. So you have to filter
-     * the output once again with a more featured matcher.
+     * Get a list of object keys.
+     *
+     * <p>This method only applies the filters that can be applied on GCS. So you have to filter
+     * the output once again with a more featured matcher.</p>
      *
      * @return partially filtered list of object keys
      */
