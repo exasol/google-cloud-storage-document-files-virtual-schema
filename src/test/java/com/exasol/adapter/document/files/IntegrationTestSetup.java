@@ -12,7 +12,7 @@ import java.util.concurrent.TimeoutException;
 import org.jetbrains.annotations.NotNull;
 
 import com.exasol.adapter.document.UdfEntryPoint;
-import com.exasol.adapter.document.files.s3testsetup.GcsTestSetup;
+import com.exasol.adapter.document.files.gcstestsetup.GcsTestSetup;
 import com.exasol.bucketfs.Bucket;
 import com.exasol.bucketfs.BucketAccessException;
 import com.exasol.dbbuilder.dialects.DatabaseObject;

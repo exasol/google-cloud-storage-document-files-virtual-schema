@@ -1,6 +1,6 @@
 package com.exasol.adapter.document.files;
 
-import com.exasol.adapter.document.files.s3testsetup.GcsTestSetup;
+import com.exasol.adapter.document.files.gcstestsetup.GcsTestSetup;
 import com.google.cloud.storage.*;
 
 import lombok.Getter;

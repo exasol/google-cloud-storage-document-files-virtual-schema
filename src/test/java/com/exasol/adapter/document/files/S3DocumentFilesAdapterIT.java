@@ -14,8 +14,8 @@ import java.util.function.Supplier;
 import org.junit.jupiter.api.*;
 import org.testcontainers.junit.jupiter.Testcontainers;
 
-import com.exasol.adapter.document.files.s3testsetup.GcsTestSetup;
-import com.exasol.adapter.document.files.s3testsetup.OnlineGcsTestSetup;
+import com.exasol.adapter.document.files.gcstestsetup.GcsTestSetup;
+import com.exasol.adapter.document.files.gcstestsetup.OnlineGcsTestSetup;
 import com.exasol.bucketfs.BucketAccessException;
 import com.exasol.dbbuilder.dialects.DatabaseObjectException;
 import com.exasol.dbbuilder.dialects.exasol.ConnectionDefinition;

@@ -1,4 +1,4 @@
-package com.exasol.adapter.document.files.s3testsetup;
+package com.exasol.adapter.document.files.gcstestsetup;
 
 import java.io.*;
 import java.nio.file.Files;

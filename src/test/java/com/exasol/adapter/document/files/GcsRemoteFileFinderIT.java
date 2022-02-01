@@ -12,8 +12,8 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
 import com.exasol.adapter.document.files.connection.GcsConnectionProperties;
-import com.exasol.adapter.document.files.s3testsetup.GcsTestSetup;
-import com.exasol.adapter.document.files.s3testsetup.OnlineGcsTestSetup;
+import com.exasol.adapter.document.files.gcstestsetup.GcsTestSetup;
+import com.exasol.adapter.document.files.gcstestsetup.OnlineGcsTestSetup;
 import com.exasol.adapter.document.files.stringfilter.wildcardexpression.WildcardExpression;
 
 @Tag("integration")

@@ -2,8 +2,8 @@ package com.exasol.adapter.document.files;
 
 import com.exasol.adapter.document.documentfetcher.files.randomaccessinputstream.RandomAccessInputStream;
 import com.exasol.adapter.document.documentfetcher.files.randomaccessinputstream.RandomAccessInputStreamTestBase;
-import com.exasol.adapter.document.files.s3testsetup.GcsTestSetup;
-import com.exasol.adapter.document.files.s3testsetup.OnlineGcsTestSetup;
+import com.exasol.adapter.document.files.gcstestsetup.GcsTestSetup;
+import com.exasol.adapter.document.files.gcstestsetup.OnlineGcsTestSetup;
 import com.google.cloud.storage.Blob;
 
 class GcsRandomAccessInputStreamTest extends RandomAccessInputStreamTestBase {

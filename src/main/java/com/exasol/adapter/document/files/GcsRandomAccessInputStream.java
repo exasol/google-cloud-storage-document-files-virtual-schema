@@ -18,6 +18,12 @@ class GcsRandomAccessInputStream extends RandomAccessInputStream {
     private final long fileSize;
     long position = 0;
 
+    /**
+     * Create a new instance of {@link GcsRandomAccessInputStream}.
+     * 
+     * @param blob     blog
+     * @param fileSize file size in bytes
+     */
     GcsRandomAccessInputStream(final Blob blob, final long fileSize) {
         this.reader = blob.reader();
         this.fileSize = fileSize;

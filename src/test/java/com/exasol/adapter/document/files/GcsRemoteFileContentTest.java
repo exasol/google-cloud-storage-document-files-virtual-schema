@@ -11,8 +11,8 @@ import java.util.concurrent.*;
 import org.junit.jupiter.api.*;
 
 import com.exasol.adapter.document.documentfetcher.files.RemoteFileContent;
-import com.exasol.adapter.document.files.s3testsetup.GcsTestSetup;
-import com.exasol.adapter.document.files.s3testsetup.OnlineGcsTestSetup;
+import com.exasol.adapter.document.files.gcstestsetup.GcsTestSetup;
+import com.exasol.adapter.document.files.gcstestsetup.OnlineGcsTestSetup;
 
 class GcsRemoteFileContentTest {
     private static final String TEST_DATA_VALUE = "test content";
