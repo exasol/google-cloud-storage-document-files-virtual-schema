@@ -1,6 +1,6 @@
 # User Guide
 
-This user guide helps you with getting started with the S3 Files Virtual Schemas.
+This user guide helps you with getting started with the Google Cloud Storage (GCS) Files Virtual Schemas.
 
 ### Installation
 
@@ -36,9 +36,9 @@ CREATE OR REPLACE JAVA SET SCRIPT ADAPTER.IMPORT_FROM_GOOGLE_CLOUD_STORAGE_DOCUM
 
 ## Creating a Connection
 
-For granting the virtual schema access you Google-Cloud-Storage bucket you need a Service Role. Please follow the [following tutorial](https://cloud.google.com/docs/authentication/production#create_service_account) on how to create it. The account needs permissions to read and list files on the bucket. We recommend the `Storage Object Viewer` role. When you created the role you can download a key file. It's a JSON file. Open the file and copy the contents.
+For granting the Virtual Schema access to your GCS bucket you need a Service Role. Please follow the [following tutorial](https://cloud.google.com/docs/authentication/production#create_service_account) on how to create it. The account needs permissions to read and list files on the bucket. We recommend the `Storage Object Viewer` role. After creating the role please download a key file as a JSON formatted file. Open the file and copy the contents.
 
-Now you need to define a connection that includes the location of stored files:
+Now you need to define a connection that includes the contents of the key file:
 
  ```sql
 CREATE CONNECTION GCS_CONNECTION
@@ -50,7 +50,7 @@ CREATE CONNECTION GCS_CONNECTION
             "project_id": "",
             ...
         }  
-        "gcsBucket": "<S3 BUCKET NAME>" 
+        "gcsBucket": "<GCS BUCKET NAME>" 
     }';
 ```
 
@@ -75,7 +75,7 @@ In the definitions you have to define the `source` property. Use something like 
 
 This Virtual Schema adapter automatically detects the type of the document file by the file extension. You can find a list of supported file types and their extensions in the [user guide of the common repository for all file Virtual Schemas](https://github.com/exasol/virtual-schema-common-document-files/blob/main/doc/user_guide/user_guide.md).
 
-### Mapping multiple files
+### Mapping Multiple Files
 
 For some file type (for example JSON) each source file contains only a single document. That means, that you have one file for each row in the mapped table. To define mappings for such types, you can use the GLOB syntax. That means, you can use `*` and `?` as wildcards, where `*` matches multiple characters and `?` a single one.
 
@@ -102,4 +102,4 @@ Now browse the data using your favorite SQL client.
 
 ## Known Issues:
 
-* Certain virtual-schema queries can cause a database crash. For details see [#41](https://github.com/exasol/virtual-schema-common-document-files/issues/41).
+* Certain Virtual Schema queries can cause a database crash. For details see [#41](https://github.com/exasol/virtual-schema-common-document-files/issues/41).

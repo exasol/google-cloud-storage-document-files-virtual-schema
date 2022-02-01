@@ -6,7 +6,7 @@ import com.exasol.adapter.document.DocumentAdapter;
 import com.exasol.logging.VersionCollector;
 
 /**
- * Factory for the S3 virtual schema adapter.
+ * Factory for the GCS Virtual Schema adapter.
  * 
  * <p>
  * This factory is loaded via a service loader (resources/services/com.exasol.adapter.AdapterFactory).

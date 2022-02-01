@@ -18,12 +18,15 @@ This Virtual Schemas allows you to access document files stored in Google Cloud 
 
 This Virtual Schema is built for and tested with the official Google Cloud Storage. Third-party API compatible products are expected to work as well. It is highly recommended to thoroughly test 3rd party products used in combination with Exasol, especially regarding sufficient google-cloud-storage API compatibility.
 
-For supported document file formats: see [files Virtual Schema][files-vs]
+For supported document file formats, see [Files Virtual Schema][files-vs]
 
-Additional Information:
+## Information for Users
 
 * [User Guide](doc/user_guide/user_guide.md)
 * [Changelog](doc/changes/changelog.md)
+
+## Information for Developers
+
 * [Dependencies](dependencies.md)
 * [Developers Guide](doc/developers_guide/developers_guide.md)
 

@@ -3,7 +3,7 @@ package com.exasol.adapter.document.files;
 import lombok.Data;
 
 /**
- * This class represents a reference to a S3 object.
+ * This class represents a reference to a GCS object.
  */
 @Data
 class GcsObjectDescription {

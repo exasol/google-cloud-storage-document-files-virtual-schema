@@ -15,7 +15,6 @@ import com.google.cloud.storage.Bucket;
  * {@link RemoteFileContent} for google-cloud-storage.
  */
 class GcsRemoteFileContent implements RemoteFileContent {
-    /** Exception message used by S3 if there were too many API requests. */
     private static final int SIZE_1_MB = 1000000;
     private final Bucket bucket;
     private final GcsObjectDescription fileToRead;
