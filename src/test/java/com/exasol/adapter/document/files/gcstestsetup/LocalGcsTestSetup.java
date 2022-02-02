@@ -31,8 +31,9 @@ public class LocalGcsTestSetup implements GcsTestSetup {
     }
 
     @Override
-    public byte[] getKeyFile() {
-        return "null".getBytes(StandardCharsets.UTF_8);
+    public byte[] getKeyFileAsJson() {
+        final String json = "null";
+        return json.getBytes(StandardCharsets.UTF_8);
     }
 
     @Override

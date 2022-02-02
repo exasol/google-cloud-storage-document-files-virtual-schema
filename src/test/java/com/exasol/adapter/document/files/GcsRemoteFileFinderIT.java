@@ -32,7 +32,7 @@ class GcsRemoteFileFinderIT {
         testBucket.getBucket().create("file-2.json", CONTENT_2.getBytes());
         testBucket.getBucket().create("other.json", CONTENT_OTHER.getBytes());
         connectionInformation = GcsConnectionProperties.builder().gcsBucket(testBucket.getBucket().getName())
-                .gcKey(TEST_SETUP.getKeyFile()).gcHost(TEST_SETUP.getHostOverride().orElse(null))
+                .gcKey(TEST_SETUP.getKeyFileAsJson()).gcHost(TEST_SETUP.getHostOverride().orElse(null))
                 .useSsl(TEST_SETUP.useSsl()).build();
     }
 

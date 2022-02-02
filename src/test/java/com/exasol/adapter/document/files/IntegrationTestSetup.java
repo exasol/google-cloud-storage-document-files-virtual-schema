@@ -77,7 +77,7 @@ public class IntegrationTestSetup implements AutoCloseable {
     }
 
     public JsonObjectBuilder getConnectionConfig() {
-        final byte[] json = this.gcsTestSetup.getKeyFile();
+        final byte[] json = this.gcsTestSetup.getKeyFileAsJson();
         final JsonObjectBuilder objectBuilder = Json.createObjectBuilder();
         final Optional<String> hostOverride = getHostOverride();
         hostOverride.ifPresent(s -> objectBuilder.add("gcHost", s));

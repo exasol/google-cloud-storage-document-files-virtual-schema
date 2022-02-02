@@ -33,7 +33,7 @@ public class OnlineGcsTestSetup implements GcsTestSetup {
     }
 
     @Override
-    public byte[] getKeyFile() {
+    public byte[] getKeyFileAsJson() {
         try {
             return Files.readAllBytes(Path.of(KEY_FILE));
         } catch (final IOException exception) {
