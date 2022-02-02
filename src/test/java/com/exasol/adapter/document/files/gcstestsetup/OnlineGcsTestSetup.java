@@ -47,6 +47,11 @@ public class OnlineGcsTestSetup implements GcsTestSetup {
     }
 
     @Override
+    public boolean useSsl() {
+        return true;
+    }
+
+    @Override
     public Optional<String> getHostOverride() {
         return Optional.empty();
     }

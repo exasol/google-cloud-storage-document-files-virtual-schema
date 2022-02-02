@@ -12,7 +12,7 @@ import org.junit.jupiter.api.*;
 
 import com.exasol.adapter.document.documentfetcher.files.RemoteFileContent;
 import com.exasol.adapter.document.files.gcstestsetup.GcsTestSetup;
-import com.exasol.adapter.document.files.gcstestsetup.OnlineGcsTestSetup;
+import com.exasol.adapter.document.files.gcstestsetup.LocalGcsTestSetup;
 
 class GcsRemoteFileContentTest {
     private static final String TEST_DATA_VALUE = "test content";
@@ -24,7 +24,7 @@ class GcsRemoteFileContentTest {
 
     @BeforeAll
     static void beforeAll() {
-        testSetup = new OnlineGcsTestSetup();
+        testSetup = new LocalGcsTestSetup();
         testBucket = new TestBucket(testSetup);
         testBucket.getBucket().create(TEST_DATA_KEY, TEST_DATA_VALUE.getBytes());
         executorServiceFactory = new ExecutorServiceFactory();

@@ -13,12 +13,12 @@ import org.junit.jupiter.params.provider.CsvSource;
 
 import com.exasol.adapter.document.files.connection.GcsConnectionProperties;
 import com.exasol.adapter.document.files.gcstestsetup.GcsTestSetup;
-import com.exasol.adapter.document.files.gcstestsetup.OnlineGcsTestSetup;
+import com.exasol.adapter.document.files.gcstestsetup.LocalGcsTestSetup;
 import com.exasol.adapter.document.files.stringfilter.wildcardexpression.WildcardExpression;
 
 @Tag("integration")
 class GcsRemoteFileFinderIT {
-    private static final GcsTestSetup TEST_SETUP = new OnlineGcsTestSetup();
+    private static final GcsTestSetup TEST_SETUP = new LocalGcsTestSetup();
     private static final String CONTENT_1 = "content-1";
     private static final String CONTENT_2 = "content-2";
     private static final String CONTENT_OTHER = "other";
@@ -32,7 +32,8 @@ class GcsRemoteFileFinderIT {
         testBucket.getBucket().create("file-2.json", CONTENT_2.getBytes());
         testBucket.getBucket().create("other.json", CONTENT_OTHER.getBytes());
         connectionInformation = GcsConnectionProperties.builder().gcsBucket(testBucket.getBucket().getName())
-                .gcKey(TEST_SETUP.getKeyFile()).build();
+                .gcKey(TEST_SETUP.getKeyFile()).gcHost(TEST_SETUP.getHostOverride().orElse(null))
+                .useSsl(TEST_SETUP.useSsl()).build();
     }
 
     @AfterAll

@@ -18,7 +18,8 @@ import com.exasol.bucketfs.BucketAccessException;
 import com.exasol.dbbuilder.dialects.DatabaseObject;
 import com.exasol.dbbuilder.dialects.exasol.*;
 import com.exasol.dbbuilder.dialects.exasol.udf.UdfScript;
-import com.exasol.exasoltestsetup.*;
+import com.exasol.exasoltestsetup.ExasolTestSetup;
+import com.exasol.exasoltestsetup.ServiceAddress;
 import com.exasol.udfdebugging.UdfTestSetup;
 
 import jakarta.json.*;
@@ -27,8 +28,7 @@ import lombok.Setter;
 
 public class IntegrationTestSetup implements AutoCloseable {
     private static final String ADAPTER_JAR = "document-files-virtual-schema-dist-6.0.0-google-cloud-storage-1.0.0.jar";
-    private final ExasolTestSetup exasolTestSetup = new ExasolTestSetupFactory(
-            Path.of("cloudSetup/generated/testConfig.json")).getTestSetup();
+    private final ExasolTestSetup exasolTestSetup;
     private final Connection connection;
     private final Statement statement;
     private final ExasolObjectFactory exasolObjectFactory;
@@ -42,8 +42,10 @@ public class IntegrationTestSetup implements AutoCloseable {
     @Setter
     private ConnectionDefinition connectionDefinition;
 
-    public IntegrationTestSetup(final GcsTestSetup gcsTestSetup, final com.google.cloud.storage.Bucket gcsBucket)
+    public IntegrationTestSetup(final ExasolTestSetup exasolTestSetup, final GcsTestSetup gcsTestSetup,
+            final com.google.cloud.storage.Bucket gcsBucket)
             throws SQLException, BucketAccessException, TimeoutException, FileNotFoundException {
+        this.exasolTestSetup = exasolTestSetup;
         this.gcsTestSetup = gcsTestSetup;
         this.gcsBucket = gcsBucket;
         this.connection = this.exasolTestSetup.createConnection();
@@ -81,7 +83,7 @@ public class IntegrationTestSetup implements AutoCloseable {
         hostOverride.ifPresent(s -> objectBuilder.add("gcHost", s));
         return objectBuilder//
                 .add("gcsBucket", this.gcsBucket.getName())//
-                .add("gcKey", readJson(json));
+                .add("gcKey", readJson(json)).add("useSsl", this.gcsTestSetup.useSsl());
     }
 
     private JsonValue readJson(final byte[] json) {

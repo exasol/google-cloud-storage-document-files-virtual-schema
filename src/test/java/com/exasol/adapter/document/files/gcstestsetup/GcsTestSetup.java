@@ -12,5 +12,7 @@ public interface GcsTestSetup extends AutoCloseable {
     @Override
     void close();
 
+    boolean useSsl();
+
     Optional<String> getHostOverride();
 }

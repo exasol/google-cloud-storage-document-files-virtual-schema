@@ -3,7 +3,7 @@ package com.exasol.adapter.document.files;
 import com.exasol.adapter.document.documentfetcher.files.randomaccessinputstream.RandomAccessInputStream;
 import com.exasol.adapter.document.documentfetcher.files.randomaccessinputstream.RandomAccessInputStreamTestBase;
 import com.exasol.adapter.document.files.gcstestsetup.GcsTestSetup;
-import com.exasol.adapter.document.files.gcstestsetup.OnlineGcsTestSetup;
+import com.exasol.adapter.document.files.gcstestsetup.LocalGcsTestSetup;
 import com.google.cloud.storage.Blob;
 
 class GcsRandomAccessInputStreamTest extends RandomAccessInputStreamTestBase {
@@ -15,7 +15,7 @@ class GcsRandomAccessInputStreamTest extends RandomAccessInputStreamTestBase {
 
     @Override
     protected void prepareTestSetup(final byte[] bytes) {
-        this.testSetup = new OnlineGcsTestSetup();
+        this.testSetup = new LocalGcsTestSetup();
         this.testBucket = new TestBucket(this.testSetup);
         this.testDataLength = bytes.length;
         this.blob = this.testBucket.getBucket().create(TEST_DATA_KEY, bytes);
