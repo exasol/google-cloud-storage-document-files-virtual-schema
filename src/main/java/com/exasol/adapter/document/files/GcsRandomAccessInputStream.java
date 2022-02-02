@@ -21,7 +21,7 @@ class GcsRandomAccessInputStream extends RandomAccessInputStream {
     /**
      * Create a new instance of {@link GcsRandomAccessInputStream}.
      * 
-     * @param blob     blog
+     * @param blob     blob
      * @param fileSize file size in bytes
      */
     GcsRandomAccessInputStream(final Blob blob, final long fileSize) {
