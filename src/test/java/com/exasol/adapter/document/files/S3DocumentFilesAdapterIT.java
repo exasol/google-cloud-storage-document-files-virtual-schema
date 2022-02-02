@@ -11,33 +11,49 @@ import java.util.Map;
 import java.util.concurrent.TimeoutException;
 import java.util.function.Supplier;
 
+import org.jetbrains.annotations.NotNull;
 import org.junit.jupiter.api.*;
 import org.testcontainers.junit.jupiter.Testcontainers;
 
-import com.exasol.adapter.document.files.gcstestsetup.GcsTestSetup;
-import com.exasol.adapter.document.files.gcstestsetup.OnlineGcsTestSetup;
+import com.exasol.adapter.document.files.gcstestsetup.*;
 import com.exasol.bucketfs.BucketAccessException;
 import com.exasol.dbbuilder.dialects.DatabaseObjectException;
 import com.exasol.dbbuilder.dialects.exasol.ConnectionDefinition;
 import com.exasol.dbbuilder.dialects.exasol.VirtualSchema;
+import com.exasol.exasoltestsetup.ExasolTestSetup;
+import com.exasol.exasoltestsetup.ExasolTestSetupFactory;
+import com.exasol.exasoltestsetup.testcontainers.ExasolTestcontainerTestSetup;
 
 @Tag("integration")
 @Testcontainers
 class GcsDocumentFilesAdapterIT extends AbstractDocumentFilesAdapterIT {
-    private static final GcsTestSetup GCS_TEST_SETUP = new OnlineGcsTestSetup();
     private static IntegrationTestSetup SETUP;
     private static TestBucket testBucket;
+    private static GcsTestSetup gcsTestSetup;
 
     @BeforeAll
     static void beforeAll() throws Exception {
-        testBucket = new TestBucket(GCS_TEST_SETUP);
-        SETUP = new IntegrationTestSetup(GCS_TEST_SETUP, testBucket.getBucket());
+        final ExasolTestSetup exasolTestSetup = new ExasolTestSetupFactory(
+                Path.of("cloudSetup/generated/testConfig.json")).getTestSetup();
+        gcsTestSetup = getGcsTestSetup(exasolTestSetup);
+        testBucket = new TestBucket(gcsTestSetup);
+        SETUP = new IntegrationTestSetup(exasolTestSetup, gcsTestSetup, testBucket.getBucket());
+    }
+
+    @NotNull
+    private static GcsTestSetup getGcsTestSetup(final ExasolTestSetup exasolTestSetup) {
+        if (exasolTestSetup instanceof ExasolTestcontainerTestSetup) {
+            return new LocalGcsTestSetup();
+        } else {
+            return new OnlineGcsTestSetup();
+        }
     }
 
     @AfterAll
     static void afterAll() throws Exception {
         testBucket.close();
         SETUP.close();
+        gcsTestSetup.close();
     }
 
     @AfterEach

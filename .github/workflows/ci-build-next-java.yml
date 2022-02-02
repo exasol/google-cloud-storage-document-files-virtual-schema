@@ -26,11 +26,6 @@ jobs:
           key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
           restore-keys: |
             ${{ runner.os }}-maven-
-      - name: Write google-key.json
-        run: |
-          echo "$GC_KEY" > google-key.json
-        env:
-          GC_KEY: ${{ secrets.GC_KEY }}
       - name: Run tests and build with Maven
         run: |
           mvn --batch-mode --update-snapshots clean package -DtrimStackTrace=false \

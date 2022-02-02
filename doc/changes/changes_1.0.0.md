@@ -5,6 +5,7 @@ Code name: Initial Version
 ## Features
 
 * #1: Initial Implementation
+* #3: Added local test setup
 
 ## Dependency Updates
 

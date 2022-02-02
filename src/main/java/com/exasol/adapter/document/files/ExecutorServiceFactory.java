@@ -1,10 +1,11 @@
 package com.exasol.adapter.document.files;
 
+import java.io.Closeable;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 /** Lazy factory for an {@link ExecutorService}. */
-public class ExecutorServiceFactory implements AutoCloseable {
+public class ExecutorServiceFactory implements Closeable {
     private ExecutorService service = null;
 
     /**

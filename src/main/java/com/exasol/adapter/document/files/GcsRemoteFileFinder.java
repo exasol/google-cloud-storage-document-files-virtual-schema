@@ -2,6 +2,8 @@ package com.exasol.adapter.document.files;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.util.Arrays;
 
 import com.exasol.adapter.document.documentfetcher.files.RemoteFile;
 import com.exasol.adapter.document.documentfetcher.files.RemoteFileFinder;
@@ -9,7 +11,9 @@ import com.exasol.adapter.document.files.connection.GcsConnectionProperties;
 import com.exasol.adapter.document.files.stringfilter.StringFilter;
 import com.exasol.adapter.document.iterators.*;
 import com.exasol.errorreporting.ExaError;
+import com.google.auth.Credentials;
 import com.google.auth.oauth2.GoogleCredentials;
+import com.google.cloud.NoCredentials;
 import com.google.cloud.storage.*;
 
 /**
@@ -32,7 +36,7 @@ public class GcsRemoteFileFinder implements RemoteFileFinder {
     }
 
     private Storage buildGcsClient(final GcsConnectionProperties connectionProperties) {
-        final GoogleCredentials googleCredentials = getCredentials(connectionProperties);
+        final Credentials googleCredentials = getCredentials(connectionProperties);
         final StorageOptions.Builder clientBuilder = StorageOptions.newBuilder().setCredentials(googleCredentials);
         if (connectionProperties.hasHostOverride()) {
             final String protocol = connectionProperties.isUseSsl() ? "https://" : "http://";
@@ -41,16 +45,23 @@ public class GcsRemoteFileFinder implements RemoteFileFinder {
         return clientBuilder.build().getService();
     }
 
-    private GoogleCredentials getCredentials(final GcsConnectionProperties connectionProperties) {
-        try (final ByteArrayInputStream inputStream = new ByteArrayInputStream(connectionProperties.getGcKey());) {
-            return GoogleCredentials.fromStream(inputStream);
-        } catch (final IOException exception) {
-            throw new IllegalArgumentException(
-                    ExaError.messageBuilder("E-VS-GCS-9").message("Failed to read Google key definition.")
-                            .mitigation("Please check the value of gcKey.").toString());
+    private Credentials getCredentials(final GcsConnectionProperties connectionProperties) {
+        final byte[] gcKey = connectionProperties.getGcKey();
+        if (Arrays.equals(gcKey, "null".getBytes(StandardCharsets.UTF_8))) {
+            return NoCredentials.getInstance();
+        } else {
+            try (final ByteArrayInputStream inputStream = new ByteArrayInputStream(gcKey);) {
+                return GoogleCredentials.fromStream(inputStream);
+            } catch (final IOException exception) {
+                throw new IllegalArgumentException(
+                        ExaError.messageBuilder("E-VS-GCS-9").message("Failed to read Google key definition.")
+                                .mitigation("Please check the value of gcKey.").toString(),
+                        exception);
+            }
         }
     }
 
+    @SuppressWarnings("java:S2095") // executorServiceFactory is closed by CloseInjectIterator
     @Override
     public CloseableIterator<RemoteFile> loadFiles() {
         final com.exasol.adapter.document.files.stringfilter.matcher.Matcher filePatternMatcher = this.filePattern
@@ -67,8 +78,10 @@ public class GcsRemoteFileFinder implements RemoteFileFinder {
     /**
      * Get a list of object keys.
      *
-     * <p>This method only applies the filters that can be applied on GCS. So you have to filter
-     * the output once again with a more featured matcher.</p>
+     * <p>
+     * This method only applies the filters that can be applied on GCS. So you have to filter the output once again with
+     * a more featured matcher.
+     * </p>
      *
      * @return partially filtered list of object keys
      */
