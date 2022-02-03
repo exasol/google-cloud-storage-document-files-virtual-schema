@@ -1,4 +1,4 @@
-# Virtual Schema for document data in files on Google Cloud Storage 1.0.0, released 2022-??-??
+# Virtual Schema for document data in files on Google Cloud Storage 1.0.0, released 2022-02-03
 
 Code name: Initial Version
 
