@@ -16,6 +16,11 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: 11
+      - name: Write google-key.json
+        run: |
+          echo "$GC_KEY" > google-key.json
+        env:
+          GC_KEY: ${{ secrets.GC_KEY }}
       - name: Cache local Maven repository
         uses: actions/cache@v2
         with:
