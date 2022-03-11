@@ -84,8 +84,8 @@ For some file type (for example JSON) each source file contains only a single do
 Finally, create the Virtual Schema using:
 
 ```sql
-CREATE VIRTUAL SCHEMA FILES_VS_TEST USING ADAPTER.S3_FILES_ADAPTER WITH
-    CONNECTION_NAME = 'S3_CONNECTION'
+CREATE VIRTUAL SCHEMA FILES_VS_TEST USING ADAPTER.GOOGLE_CLOUD_STORAGE_FILES_ADAPTER WITH
+    CONNECTION_NAME = 'GCS_CONNECTION'
     MAPPING         = '/bfsdefault/default/path/to/mappings/in/bucketfs';
 ```
 
