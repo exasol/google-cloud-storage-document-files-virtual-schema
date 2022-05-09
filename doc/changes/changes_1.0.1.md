@@ -14,7 +14,7 @@ The CVEs fixed in #10 did only affect test code and had no impact on the product
 
 ### Compile Dependency Updates
 
-* Updated `com.exasol:virtual-schema-common-document-files:6.0.0` to `6.0.2`
+* Updated `com.exasol:virtual-schema-common-document-files:6.0.0` to `6.0.1`
 * Updated `com.fasterxml.jackson.core:jackson-core:2.13.1` to `2.13.2`
 * Updated `com.google.cloud:google-cloud-storage:2.2.3` to `2.6.1`
 
@@ -22,7 +22,7 @@ The CVEs fixed in #10 did only affect test code and had no impact on the product
 
 * Updated `com.exasol:test-db-builder-java:3.2.2` to `3.3.2`
 * Updated `com.exasol:udf-debugging-java:0.5.0` to `0.6.0`
-* Updated `com.exasol:virtual-schema-common-document-files:6.0.0` to `6.0.2`
+* Updated `com.exasol:virtual-schema-common-document-files:6.0.0` to `6.0.1`
 * Updated `org.jacoco:org.jacoco.agent:0.8.7` to `0.8.8`
 * Updated `org.jacoco:org.jacoco.core:0.8.7` to `0.8.8`
 * Updated `org.mockito:mockito-core:4.1.0` to `4.5.1`
