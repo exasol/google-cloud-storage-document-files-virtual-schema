@@ -17,7 +17,7 @@ Next create the Adapter Script:
  ```sql
 CREATE OR REPLACE JAVA ADAPTER SCRIPT ADAPTER.GOOGLE_CLOUD_STORAGE_FILES_ADAPTER AS
     %scriptclass com.exasol.adapter.RequestDispatcher;
-    %jar /buckets/bfsdefault/default/document-files-virtual-schema-dist-6.0.0-google-cloud-storage-1.0.0.jar;
+    %jar /buckets/bfsdefault/default/document-files-virtual-schema-dist-6.0.2-google-cloud-storage-1.0.1.jar;
 /
 ```
 
@@ -30,7 +30,7 @@ CREATE OR REPLACE JAVA SET SCRIPT ADAPTER.IMPORT_FROM_GOOGLE_CLOUD_STORAGE_DOCUM
   CONNECTION_NAME VARCHAR(500))
   EMITS(...) AS
     %scriptclass com.exasol.adapter.document.UdfEntryPoint;
-    %jar /buckets/bfsdefault/default/document-files-virtual-schema-dist-6.0.0-google-cloud-storage-1.0.0.jar;
+    %jar /buckets/bfsdefault/default/document-files-virtual-schema-dist-6.0.2-google-cloud-storage-1.0.1.jar;
 /
 ```
 
