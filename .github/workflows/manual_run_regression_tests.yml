@@ -22,6 +22,10 @@ jobs:
           distribution: 'temurin'
           java-version: 11
           cache: 'maven'
+      - name: Run local smoketests
+        run: |
+          mvn --batch-mode --update-snapshots clean test -DtrimStackTrace=false -Dtest.coverage=false \
+            -Derror-code-crawler.skip=true -Dmaven.javadoc.skip=true -Dproject-keeper.skip=true
       - name: Create AWS test setup
         run: |
           echo "owner = \"$OWNER\"" > cloudSetup/terraform.tfvars
