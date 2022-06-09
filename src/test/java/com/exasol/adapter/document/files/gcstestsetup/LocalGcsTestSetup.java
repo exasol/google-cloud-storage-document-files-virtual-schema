@@ -21,7 +21,7 @@ public class LocalGcsTestSetup implements GcsTestSetup {
                 .withCreateContainerCmdModifier(cmd -> cmd.withEntrypoint("/bin/fake-gcs-server", "-scheme", "http"));
         this.container.start();
         final Integer portOnHost = this.container.getMappedPort(PORT_IN_CONTAINER);
-        this.host = "localhost:" + portOnHost;
+        this.host = this.container.getHost() + ":" + portOnHost;
     }
 
     @Override
