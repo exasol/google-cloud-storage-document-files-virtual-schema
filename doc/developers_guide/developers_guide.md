@@ -2,19 +2,23 @@
 
 This guide contains information for developers.
 
+## Setup Integration Tests
+
+Integration tests need access to Google Cloud. To configure this, follow [these instructions](https://cloud.google.com/iam/docs/creating-managing-service-account-keys#creating) to create a service account key and save it to file `google-key.json`.
+
 ## Running Regression Test
 
 This project contains some regression tests to monitor the performance cross releases. To run them locally use:
 
 ```shell
-mvn verify -P regressionTests
+mvn verify -PregressionTests
 ```
 
 However, a local run won't give you reliable numbers, since it's dependent on your local hardware configuration.
 
 ## Getting Debug Output
 
-In order to get the log output from inside the database set the system property`test.udf-logs=true` (by adding it with `-D` as jvm option in your IDE's test config) and check the files in `target/udf-logs/`.
+In order to get the log output from inside the database set the system property `test.udf-logs=true` (by adding it with `-D` as jvm option in your IDE's test config) and check the files in `target/udf-logs/`.
 
 ## Debugging & Profiling
 
