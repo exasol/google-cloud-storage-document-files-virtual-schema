@@ -11,6 +11,8 @@ import com.exasol.adapter.document.files.stringfilter.StringFilter;
  */
 public class GcsFileFinderFactory implements FileFinderFactory {
 
+    private static final long serialVersionUID = 4218381681812205674L;
+
     @Override
     public RemoteFileFinder getFinder(final StringFilter filePattern,
             final ConnectionPropertiesReader connectionInformation) {
