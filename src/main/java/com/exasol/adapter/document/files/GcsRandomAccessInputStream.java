@@ -31,7 +31,7 @@ class GcsRandomAccessInputStream extends RandomAccessInputStream {
 
     @Override
     public void seek(final long position) {
-        LOGGER.log(Level.INFO, "Seeked to position {}", position);
+        LOGGER.log(Level.FINEST, "Seek to position {0}", position);
         this.position = position;
         try {
             this.reader.seek(position);
@@ -58,7 +58,7 @@ class GcsRandomAccessInputStream extends RandomAccessInputStream {
 
     @Override
     public int read() {
-        LOGGER.info("Performing single read at position.");
+        LOGGER.finest("Performing single read at position.");
         if (this.position < getLength()) {
             final byte[] data = new byte[1];
             try {
@@ -75,7 +75,7 @@ class GcsRandomAccessInputStream extends RandomAccessInputStream {
 
     @Override
     public int read(final byte[] targetBuffer, final int offset, final int length) {
-        LOGGER.log(Level.INFO, "read length: {}", length);
+        LOGGER.log(Level.FINEST, "Read length: {0}", length);
         if (length == 0) {
             return 0;
         }
