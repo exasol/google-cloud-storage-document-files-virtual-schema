@@ -14,12 +14,14 @@ This release upgrades dependencies and adapts the collection of regression tests
 
 ### Compile Dependency Updates
 
+* Updated `com.exasol:virtual-schema-common-document-files:7.0.1` to `7.0.2`
 * Updated `com.fasterxml.jackson.core:jackson-core:2.13.2` to `2.13.3`
 * Updated `com.google.cloud:google-cloud-storage:2.6.1` to `2.8.0`
 
 ### Test Dependency Updates
 
 * Updated `com.exasol:exasol-test-setup-abstraction-java:0.3.1` to `0.3.2`
+* Updated `com.exasol:virtual-schema-common-document-files:7.0.1` to `7.0.2`
 * Removed `junit:junit:4.13.2`
 * Updated `org.mockito:mockito-core:4.5.1` to `4.6.1`
 * Updated `org.testcontainers:junit-jupiter:1.17.1` to `1.17.2`
