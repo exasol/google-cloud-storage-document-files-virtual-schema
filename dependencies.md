@@ -20,14 +20,14 @@
 | [JUnit Jupiter Engine][14]                      | [Eclipse Public License v2.0][15] |
 | [JUnit Jupiter Params][14]                      | [Eclipse Public License v2.0][15] |
 | [mockito-core][18]                              | [The MIT License][19]             |
-| [JUnit][20]                                     | [Eclipse Public License 1.0][21]  |
-| [Testcontainers :: JUnit Jupiter Extension][22] | [MIT][23]                         |
-| [Testcontainers :: Localstack][22]              | [MIT][23]                         |
-| [Test Database Builder for Java][26]            | [MIT License][27]                 |
-| [udf-debugging-java][28]                        | [MIT][5]                          |
-| [Matcher for SQL Result Sets][30]               | [MIT][5]                          |
-| [exasol-test-setup-abstraction-java][32]        | [MIT][5]                          |
-| [SnakeYAML][34]                                 | [Apache License, Version 2.0][1]  |
+| [Testcontainers :: JUnit Jupiter Extension][20] | [MIT][21]                         |
+| [Testcontainers :: Localstack][20]              | [MIT][21]                         |
+| [Test Database Builder for Java][24]            | [MIT License][25]                 |
+| [udf-debugging-java][26]                        | [MIT][5]                          |
+| [Matcher for SQL Result Sets][28]               | [MIT][5]                          |
+| [exasol-test-setup-abstraction-java][30]        | [MIT License][31]                 |
+| [SnakeYAML][32]                                 | [Apache License, Version 2.0][1]  |
+| [Performance Test Recorder Java][34]            | [MIT][5]                          |
 | [JaCoCo :: Agent][36]                           | [Eclipse Public License 2.0][37]  |
 
 ## Plugin Dependencies
@@ -65,25 +65,25 @@
 [72]: http://maven.apache.org/plugins/maven-clean-plugin/
 [5]: https://opensource.org/licenses/MIT
 [18]: https://github.com/mockito/mockito
+[44]: https://www.mojohaus.org/flatten-maven-plugin/
 [52]: http://www.mojohaus.org/versions-maven-plugin/
 [54]: https://github.com/exasol/project-keeper/
 [11]: http://opensource.org/licenses/BSD-3-Clause
 [40]: https://maven.apache.org/plugins/maven-compiler-plugin/
-[27]: https://github.com/exasol/test-db-builder-java/blob/main/LICENSE
-[20]: http://junit.org
-[32]: https://github.com/exasol/exasol-test-setup-abstraction-java/
+[25]: https://github.com/exasol/test-db-builder-java/blob/main/LICENSE
+[30]: https://github.com/exasol/exasol-test-setup-abstraction-java/
 [37]: https://www.eclipse.org/legal/epl-2.0/
 [39]: http://www.gnu.org/licenses/lgpl.txt
 [68]: https://www.jacoco.org/jacoco/trunk/doc/maven.html
 [19]: https://github.com/mockito/mockito/blob/main/LICENSE
 [9]: https://projectlombok.org/LICENSE
-[30]: https://github.com/exasol/hamcrest-resultset-matcher
+[28]: https://github.com/exasol/hamcrest-resultset-matcher
 [48]: http://zlika.github.io/reproducible-build-maven-plugin
+[31]: https://github.com/exasol/exasol-test-setup-abstraction-java/blob/main/LICENSE
 [38]: http://sonarsource.github.io/sonar-scanner-maven/
-[28]: https://github.com/exasol/udf-debugging-java/
+[26]: https://github.com/exasol/udf-debugging-java/
 [14]: https://junit.org/junit5/
-[34]: https://bitbucket.org/snakeyaml/snakeyaml
-[44]: https://www.mojohaus.org/flatten-maven-plugin/flatten-maven-plugin
+[32]: https://bitbucket.org/snakeyaml/snakeyaml
 [2]: https://github.com/exasol/virtual-schema-common-document-files/
 [6]: https://github.com/googleapis/java-storage
 [10]: http://hamcrest.org/JavaHamcrest/
@@ -91,11 +91,11 @@
 [60]: https://github.com/exasol/artifact-reference-checker-maven-plugin
 [0]: https://github.com/FasterXML/jackson-core
 [58]: https://maven.apache.org/plugins/maven-jar-plugin/
-[26]: https://github.com/exasol/test-db-builder-java/
+[24]: https://github.com/exasol/test-db-builder-java/
 [66]: https://maven.apache.org/surefire/maven-failsafe-plugin/
+[34]: https://github.com/exasol/performance-test-recorder-java
 [64]: http://anthonywhitford.com/lombok.maven/lombok-maven-plugin/
-[23]: http://opensource.org/licenses/MIT
-[21]: http://www.eclipse.org/legal/epl-v10.html
+[21]: http://opensource.org/licenses/MIT
 [55]: https://github.com/exasol/project-keeper/blob/main/LICENSE
 [62]: https://maven.apache.org/plugins/maven-dependency-plugin/
 [7]: https://www.apache.org/licenses/LICENSE-2.0.txt
@@ -104,7 +104,7 @@
 [76]: http://maven.apache.org/plugins/maven-install-plugin/
 [46]: https://sonatype.github.io/ossindex-maven/maven-plugin/
 [3]: https://github.com/exasol/virtual-schema-common-document-files/blob/main/LICENSE
-[22]: https://testcontainers.org
+[20]: https://testcontainers.org
 [78]: http://maven.apache.org/plugins/maven-deploy-plugin/
 [80]: http://maven.apache.org/plugins/maven-site-plugin/
 [70]: https://github.com/exasol/error-code-crawler-maven-plugin
