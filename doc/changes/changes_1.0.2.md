@@ -21,6 +21,7 @@ This release upgrades dependencies and adapts the collection of regression tests
 ### Test Dependency Updates
 
 * Updated `com.exasol:exasol-test-setup-abstraction-java:0.3.1` to `0.3.2`
+* Added `com.exasol:performance-test-recorder-java:0.1.0`
 * Updated `com.exasol:virtual-schema-common-document-files:7.0.1` to `7.0.2`
 * Removed `junit:junit:4.13.2`
 * Updated `org.mockito:mockito-core:4.5.1` to `4.6.1`
