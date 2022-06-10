@@ -1,4 +1,4 @@
-# Virtual Schema for document data in files on Google Cloud Storage 1.0.2, released 2022-??-??
+# Virtual Schema for document data in files on Google Cloud Storage 1.0.2, released 2022-06-10
 
 Code name: Upgrade dependencies on 1.0.1
 
