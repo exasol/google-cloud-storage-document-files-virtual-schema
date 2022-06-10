@@ -168,6 +168,12 @@
             <version>1.30</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>com.exasol</groupId>
+            <artifactId>performance-test-recorder-java</artifactId>
+            <version>0.1.0</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
     <build>
         <plugins>
