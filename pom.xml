@@ -141,13 +141,13 @@
         <dependency>
             <groupId>com.exasol</groupId>
             <artifactId>test-db-builder-java</artifactId>
-            <version>3.3.2</version>
+            <version>3.3.3</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>com.exasol</groupId>
             <artifactId>udf-debugging-java</artifactId>
-            <version>0.6.1</version>
+            <version>0.6.4</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -215,6 +215,7 @@
                         Not a vulnerability in netty but how it is configured by the client software.amazon.awssdk:netty-nio-client,
                         only used in tests. -->
                         <exclude>sonatype-2020-0026</exclude>
+                        <exclude>CVE-2022-2047</exclude>
                     </excludeVulnerabilityIds>
                 </configuration>
             </plugin>
