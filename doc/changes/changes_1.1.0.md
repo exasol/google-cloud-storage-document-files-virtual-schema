@@ -16,4 +16,6 @@ Code name: CSV Support
 
 ### Test Dependency Updates
 
+* Updated `com.exasol:test-db-builder-java:3.3.2` to `3.3.3`
+* Updated `com.exasol:udf-debugging-java:0.6.1` to `0.6.4`
 * Updated `com.exasol:virtual-schema-common-document-files:7.0.2` to `7.1.0`
