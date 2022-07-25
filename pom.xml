@@ -3,14 +3,14 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.exasol</groupId>
     <artifactId>google-cloud-storage-document-files-virtual-schema</artifactId>
-    <version>1.0.2</version>
+    <version>1.1.0</version>
     <name>Virtual Schema for document data in files on Google Cloud Storage</name>
     <description>Adapter for document data access from files from Google Cloud Storage.</description>
     <url>https://github.com/exasol/google-cloud-storage-document-files-virtual-schema/</url>
     <properties>
         <junit.version>5.8.2</junit.version>
         <org.testcontainers.version>1.17.2</org.testcontainers.version>
-        <vs-commom-document-files.version>7.0.2</vs-commom-document-files.version>
+        <vs-common-document-files.version>7.1.0</vs-common-document-files.version>
     </properties>
     <profiles>
         <profile>
@@ -69,7 +69,7 @@
         <dependency>
             <groupId>com.exasol</groupId>
             <artifactId>virtual-schema-common-document-files</artifactId>
-            <version>${vs-commom-document-files.version}</version>
+            <version>${vs-common-document-files.version}</version>
             <exclusions>
                 <exclusion>
                     <groupId>com.fasterxml.jackson.core</groupId>
@@ -103,7 +103,7 @@
         <dependency>
             <groupId>com.exasol</groupId>
             <artifactId>virtual-schema-common-document-files</artifactId>
-            <version>${vs-commom-document-files.version}</version>
+            <version>${vs-common-document-files.version}</version>
             <type>test-jar</type>
             <scope>test</scope>
         </dependency>
@@ -193,7 +193,7 @@
                 <artifactId>maven-assembly-plugin</artifactId>
                 <groupId>org.apache.maven.plugins</groupId>
                 <configuration>
-                    <finalName>document-files-virtual-schema-dist-${vs-commom-document-files.version}-google-cloud-storage-${project.version}</finalName>
+                    <finalName>document-files-virtual-schema-dist-${vs-common-document-files.version}-google-cloud-storage-${project.version}</finalName>
                 </configuration>
             </plugin>
             <plugin>
@@ -223,7 +223,7 @@
     <parent>
         <artifactId>google-cloud-storage-document-files-virtual-schema-generated-parent</artifactId>
         <groupId>com.exasol</groupId>
-        <version>1.0.2</version>
+        <version>1.1.0</version>
         <relativePath>pk_generated_parent.pom</relativePath>
     </parent>
 </project>
