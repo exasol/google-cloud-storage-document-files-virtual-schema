@@ -50,9 +50,6 @@ final class GcsObjectDescription {
         } else if (!this.name.equals(other.name)) {
             return false;
         }
-        if (this.size != other.size) {
-            return false;
-        }
-        return true;
+        return this.size == other.size;
     }
 }

@@ -1,4 +1,4 @@
-# Virtual Schema for document data in files on Google Cloud Storage 1.1.1, released 2022-0929
+# Virtual Schema for document data in files on Google Cloud Storage 1.1.1, released 2022-09-29
 
 Code name: Fix vulnerabilities in dependencies
 

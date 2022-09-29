@@ -6,7 +6,6 @@ import java.util.Objects;
 /**
  * Connection properties for Google Cloud Storage.
  */
-
 public final class GcsConnectionProperties {
     private final boolean useSsl;
     private final String gcHost;
