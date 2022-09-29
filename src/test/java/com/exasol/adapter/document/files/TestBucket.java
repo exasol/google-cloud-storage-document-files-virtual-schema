@@ -4,7 +4,6 @@ import com.exasol.adapter.document.files.gcstestsetup.GcsTestSetup;
 import com.google.cloud.storage.*;
 
 public class TestBucket implements AutoCloseable {
-
     private final Bucket bucket;
 
     public TestBucket(final GcsTestSetup testSetup) {

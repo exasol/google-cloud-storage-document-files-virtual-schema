@@ -9,7 +9,7 @@ This release fixes the following vulnerabilities in dependencies:
 * ch.qos.reload4j:reload4j:jar:1.2.18.3:compile
   * [sonatype-2022-5401](https://ossindex.sonatype.org/vulnerability/sonatype-2022-5401)
 + org.scala-lang:scala-library:jar:2.13.8:compile
-  * [CVE-2022-36944
+  * CVE-2022-36944
 * org.yaml:snakeyaml:jar:1.30:test
   * CVE-2022-25857
   * CVE-2022-38749
