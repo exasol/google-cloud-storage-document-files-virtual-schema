@@ -36,6 +36,7 @@ This release fixes the following vulnerabilities in dependencies:
 * Updated `com.exasol:performance-test-recorder-java:0.1.0` to `0.1.1`
 * Updated `com.exasol:test-db-builder-java:3.3.3` to `3.3.4`
 * Updated `com.exasol:virtual-schema-common-document-files:7.1.0` to `7.1.1`
+* Added `nl.jqno.equalsverifier:equalsverifier:3.10.1`
 * Updated `org.junit.jupiter:junit-jupiter-engine:5.8.2` to `5.9.1`
 * Updated `org.junit.jupiter:junit-jupiter-params:5.8.2` to `5.9.1`
 * Updated `org.mockito:mockito-core:4.6.1` to `4.8.0`
@@ -48,3 +49,4 @@ This release fixes the following vulnerabilities in dependencies:
 * Updated `com.exasol:error-code-crawler-maven-plugin:1.1.1` to `1.1.2`
 * Updated `com.exasol:project-keeper-maven-plugin:2.4.6` to `2.8.0`
 * Updated `org.apache.maven.plugins:maven-enforcer-plugin:3.0.0` to `3.1.0`
+* Removed `org.projectlombok:lombok-maven-plugin:1.18.20.0`

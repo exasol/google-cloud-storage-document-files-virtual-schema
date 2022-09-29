@@ -3,16 +3,18 @@ package com.exasol.adapter.document.files;
 import com.exasol.adapter.document.files.gcstestsetup.GcsTestSetup;
 import com.google.cloud.storage.*;
 
-import lombok.Getter;
-
 public class TestBucket implements AutoCloseable {
-    @Getter
+
     private final Bucket bucket;
 
     public TestBucket(final GcsTestSetup testSetup) {
         final String bucketName = "gcs-document-vs-test-" + System.currentTimeMillis();
         final Storage gcsClient = testSetup.getGcsClient();
         this.bucket = gcsClient.create(BucketInfo.newBuilder(bucketName).build());
+    }
+
+    public Bucket getBucket() {
+        return bucket;
     }
 
     public void empty() {
