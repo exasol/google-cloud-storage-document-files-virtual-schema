@@ -14,7 +14,7 @@ import com.exasol.adapter.document.documentfetcher.files.RemoteFileContent;
 import com.exasol.adapter.document.files.gcstestsetup.GcsTestSetup;
 import com.exasol.adapter.document.files.gcstestsetup.LocalGcsTestSetup;
 
-class GcsRemoteFileContentTest {
+class GcsRemoteFileContentIT {
     private static final String TEST_DATA_VALUE = "test content";
     private static final String TEST_DATA_KEY = "TEST_DATA";
     private static GcsTestSetup testSetup;

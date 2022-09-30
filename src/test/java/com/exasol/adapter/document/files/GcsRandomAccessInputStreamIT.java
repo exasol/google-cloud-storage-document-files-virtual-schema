@@ -6,7 +6,7 @@ import com.exasol.adapter.document.files.gcstestsetup.GcsTestSetup;
 import com.exasol.adapter.document.files.gcstestsetup.LocalGcsTestSetup;
 import com.google.cloud.storage.Blob;
 
-class GcsRandomAccessInputStreamTest extends RandomAccessInputStreamTestBase {
+class GcsRandomAccessInputStreamIT extends RandomAccessInputStreamTestBase {
     private static final String TEST_DATA_KEY = "TEST_DATA";
     long testDataLength;
     private GcsTestSetup testSetup;

@@ -41,3 +41,4 @@ deleteLambdaResources.sh
 /google-key.json
 
 *.flattened-pom.xml
+/.apt_generated_tests/

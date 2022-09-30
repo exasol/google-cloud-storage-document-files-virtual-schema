@@ -23,11 +23,9 @@ import com.exasol.exasoltestsetup.ServiceAddress;
 import com.exasol.udfdebugging.UdfTestSetup;
 
 import jakarta.json.*;
-import lombok.Getter;
-import lombok.Setter;
 
 public class IntegrationTestSetup implements AutoCloseable {
-    private static final String ADAPTER_JAR = "document-files-virtual-schema-dist-7.1.0-google-cloud-storage-1.1.0.jar";
+    private static final String ADAPTER_JAR = "document-files-virtual-schema-dist-7.1.1-google-cloud-storage-1.1.1.jar";
     private final ExasolTestSetup exasolTestSetup;
     private final Connection connection;
     private final Statement statement;
@@ -38,8 +36,6 @@ public class IntegrationTestSetup implements AutoCloseable {
     private final GcsTestSetup gcsTestSetup;
     private final com.google.cloud.storage.Bucket gcsBucket;
     private final UdfTestSetup udfTestSetup;
-    @Getter
-    @Setter
     private ConnectionDefinition connectionDefinition;
 
     public IntegrationTestSetup(final ExasolTestSetup exasolTestSetup, final GcsTestSetup gcsTestSetup,
@@ -74,6 +70,14 @@ public class IntegrationTestSetup implements AutoCloseable {
     private ConnectionDefinition createConnectionDefinition() {
         final JsonObjectBuilder configJson = getConnectionConfig();
         return createConnectionDefinition(configJson);
+    }
+
+    public ConnectionDefinition getConnectionDefinition() {
+        return connectionDefinition;
+    }
+
+    public void setConnectionDefinition(final ConnectionDefinition connectionDefinition) {
+        this.connectionDefinition = connectionDefinition;
     }
 
     public JsonObjectBuilder getConnectionConfig() {
