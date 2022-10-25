@@ -42,3 +42,4 @@ deleteLambdaResources.sh
 
 *.flattened-pom.xml
 /.apt_generated_tests/
+/.apt_generated/
