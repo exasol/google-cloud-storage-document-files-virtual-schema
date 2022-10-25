@@ -1,4 +1,4 @@
-# Virtual Schema for document data in files on Google Cloud Storage 1.1.2, released 2022-10-25
+# Virtual Schema for document data in files on Google Cloud Storage 1.1.2, released 2022-10-26
 
 Code name: Dependency update
 
