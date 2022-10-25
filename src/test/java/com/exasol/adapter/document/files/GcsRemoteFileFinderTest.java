@@ -18,6 +18,6 @@ class GcsRemoteFileFinderTest {
         final IllegalArgumentException exception = assertThrows(IllegalArgumentException.class,
                 () -> new GcsRemoteFileFinder(filter, connectionInformation));
         assertThat(exception.getMessage(),
-                equalTo("E-VS-GCS-9: Failed to read Google key definition. Please check the value of gcKey."));
+                equalTo("E-VSGCS-9: Failed to read Google key definition. Please check the value of gcKey."));
     }
 }

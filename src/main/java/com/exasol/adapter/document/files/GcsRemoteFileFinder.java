@@ -54,7 +54,7 @@ public class GcsRemoteFileFinder implements RemoteFileFinder {
                 return GoogleCredentials.fromStream(inputStream);
             } catch (final IOException exception) {
                 throw new IllegalArgumentException(
-                        ExaError.messageBuilder("E-VS-GCS-9").message("Failed to read Google key definition.")
+                        ExaError.messageBuilder("E-VSGCS-9").message("Failed to read Google key definition.")
                                 .mitigation("Please check the value of gcKey.").toString(),
                         exception);
             }

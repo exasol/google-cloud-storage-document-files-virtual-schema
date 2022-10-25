@@ -42,7 +42,7 @@ class GcsRandomAccessInputStream extends RandomAccessInputStream {
 
     private UncheckedIOException getReadFailedException(final IOException exception) {
         return new UncheckedIOException(
-                ExaError.messageBuilder("F-VS-GCS-8").message("Failed to read from Google Cloud Storage.").toString(),
+                ExaError.messageBuilder("F-VSGCS-8").message("Failed to read from Google Cloud Storage.").toString(),
                 exception);
     }
 
