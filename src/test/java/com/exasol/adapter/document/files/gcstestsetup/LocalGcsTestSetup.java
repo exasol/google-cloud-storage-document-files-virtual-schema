@@ -2,7 +2,6 @@ package com.exasol.adapter.document.files.gcstestsetup;
 
 import java.net.InetSocketAddress;
 import java.nio.charset.StandardCharsets;
-import java.util.Objects;
 import java.util.Optional;
 
 import org.testcontainers.containers.GenericContainer;
@@ -14,22 +13,20 @@ import com.google.cloud.storage.StorageOptions;
 public class LocalGcsTestSetup implements GcsTestSetup {
     private static final int PORT_IN_CONTAINER = 4443;
     private final GenericContainer<? extends GenericContainer<?>> container;
-    private final String host;
-    private final int port;
+    private final InetSocketAddress address;
 
     public LocalGcsTestSetup() {
-        this.container = new GenericContainer<>("fsouza/fake-gcs-server:1.34");
+        this.container = new GenericContainer<>("fsouza/fake-gcs-server:1.44");
         this.container.addExposedPort(PORT_IN_CONTAINER);
         this.container
                 .withCreateContainerCmdModifier(cmd -> cmd.withEntrypoint("/bin/fake-gcs-server", "-scheme", "http"));
         this.container.start();
-        this.port = Objects.requireNonNull(this.container.getMappedPort(PORT_IN_CONTAINER));
-        this.host = this.container.getHost();
+        this.address = new InetSocketAddress(this.container.getHost(), this.container.getMappedPort(PORT_IN_CONTAINER));
     }
 
     @Override
     public Storage getGcsClient() {
-        return StorageOptions.newBuilder().setHost("http://" + this.host).setProjectId("test-project")
+        return StorageOptions.newBuilder().setHost("http://" + this.address.toString()).setProjectId("test-project")
                 .setCredentials(NoCredentials.getInstance()).build().getService();
     }
 
@@ -51,6 +48,6 @@ public class LocalGcsTestSetup implements GcsTestSetup {
 
     @Override
     public Optional<InetSocketAddress> getHostOverride() {
-        return Optional.of(new InetSocketAddress(this.host, this.port));
+        return Optional.of(address);
     }
 }
