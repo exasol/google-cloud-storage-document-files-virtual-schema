@@ -19,13 +19,12 @@ import com.exasol.dbbuilder.dialects.DatabaseObject;
 import com.exasol.dbbuilder.dialects.exasol.*;
 import com.exasol.dbbuilder.dialects.exasol.udf.UdfScript;
 import com.exasol.exasoltestsetup.ExasolTestSetup;
-import com.exasol.exasoltestsetup.ServiceAddress;
 import com.exasol.udfdebugging.UdfTestSetup;
 
 import jakarta.json.*;
 
 public class IntegrationTestSetup implements AutoCloseable {
-    private static final String ADAPTER_JAR = "document-files-virtual-schema-dist-7.1.1-google-cloud-storage-1.1.2.jar";
+    private static final String ADAPTER_JAR = "document-files-virtual-schema-dist-7.2.0-google-cloud-storage-1.2.0.jar";
     private final ExasolTestSetup exasolTestSetup;
     private final Connection connection;
     private final Statement statement;
@@ -115,8 +114,8 @@ public class IntegrationTestSetup implements AutoCloseable {
     }
 
     private Optional<String> getHostOverride() {
-        return this.gcsTestSetup.getHostOverride().map(address -> this.exasolTestSetup
-                .makeTcpServiceAccessibleFromDatabase(ServiceAddress.parse(address)).toString());
+        return this.gcsTestSetup.getHostOverride()
+                .map(address -> this.exasolTestSetup.makeTcpServiceAccessibleFromDatabase(address).toString());
     }
 
     private AdapterScript createAdapterScript(final ExasolSchema adapterSchema)

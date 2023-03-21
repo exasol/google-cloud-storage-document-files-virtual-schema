@@ -4,6 +4,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.containsInAnyOrder;
 
 import java.io.*;
+import java.net.InetSocketAddress;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,7 +27,8 @@ class GcsRemoteFileFinderOnlineIT {
         testBucket = new TestBucket(TEST_SETUP);
         testBucket.getBucket().create("file-1.json", CONTENT_1.getBytes());
         connectionInformation = GcsConnectionProperties.builder().gcsBucket(testBucket.getBucket().getName())
-                .gcKey(TEST_SETUP.getKeyFileAsJson()).gcHost(TEST_SETUP.getHostOverride().orElse(null))
+                .gcKey(TEST_SETUP.getKeyFileAsJson())
+                .gcHost(TEST_SETUP.getHostOverride().map(InetSocketAddress::toString).orElse(null))
                 .useSsl(TEST_SETUP.useSsl()).build();
     }
 

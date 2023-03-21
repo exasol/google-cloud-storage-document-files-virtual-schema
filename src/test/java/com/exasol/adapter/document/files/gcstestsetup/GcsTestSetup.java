@@ -1,5 +1,6 @@
 package com.exasol.adapter.document.files.gcstestsetup;
 
+import java.net.InetSocketAddress;
 import java.util.Optional;
 
 import com.google.cloud.storage.Storage;
@@ -14,5 +15,5 @@ public interface GcsTestSetup extends AutoCloseable {
 
     boolean useSsl();
 
-    Optional<String> getHostOverride();
+    Optional<InetSocketAddress> getHostOverride();
 }
