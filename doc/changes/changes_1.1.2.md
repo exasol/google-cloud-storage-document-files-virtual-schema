@@ -18,6 +18,10 @@ Updated dependencies to fix vulnerabilities and renamed error code prefix from `
   * [com.google.protobuf:protobuf-java:jar:3.21.6](https://ossindex.sonatype.org/component/pkg:maven/com.google.protobuf/protobuf-java@3.21.6?utm_source=ossindex-client&utm_medium=integration&utm_content=1.8.1) in compile
     * CVE-2022-3171, severity CWE-400: Uncontrolled Resource Consumption ('Resource Exhaustion') (7.5)
 
+## Refactoring
+
+* #19: Renamed error codes from VS-GCS to VSGCS
+
 ## Dependency Updates
 
 ### Compile Dependency Updates
