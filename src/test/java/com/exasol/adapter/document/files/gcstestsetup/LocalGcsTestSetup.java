@@ -18,7 +18,7 @@ public class LocalGcsTestSetup implements GcsTestSetup {
     private final InetSocketAddress address;
 
     public LocalGcsTestSetup() {
-        this.container = new GenericContainer<>("fsouza/fake-gcs-server:1.34");
+        this.container = new GenericContainer<>("fsouza/fake-gcs-server:1.44");
         this.container.addExposedPort(PORT_IN_CONTAINER);
         this.container.withCreateContainerCmdModifier(cmd -> cmd.withEntrypoint("/bin/fake-gcs-server", //
                 "-scheme", "http", //
