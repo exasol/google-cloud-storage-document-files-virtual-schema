@@ -26,8 +26,12 @@ public class LocalGcsTestSetup implements GcsTestSetup {
 
     @Override
     public Storage getGcsClient() {
-        return StorageOptions.newBuilder().setHost("http://" + this.address.toString()).setProjectId("test-project")
-                .setCredentials(NoCredentials.getInstance()).build().getService();
+        return StorageOptions.newBuilder() //
+                .setHost("http://" + this.address.toString()) //
+                .setProjectId("test-project") //
+                .setCredentials(NoCredentials.getInstance()) //
+                .build() //
+                .getService();
     }
 
     @Override
