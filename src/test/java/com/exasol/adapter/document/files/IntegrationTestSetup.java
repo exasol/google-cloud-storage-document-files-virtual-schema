@@ -176,12 +176,14 @@ public class IntegrationTestSetup implements AutoCloseable {
     }
 
     private Map<String, String> debugProperties() {
-        final String debugAddress = System.getProperty("com.exasol.virtualschema.debug.address");
-        if (debugAddress == null) {
+        final String debugHost = System.getProperty("com.exasol.log.host", null);
+        if (debugHost == null) {
             return Collections.emptyMap();
         }
-        final String logLevel = System.getProperty("com.exasol.virtualschema.debug.level");
-        return Map.of("DEBUG_ADDRESS", debugAddress, "LOG_LEVEL", (logLevel != null ? logLevel : "ALL"));
+        final String debugPort = System.getProperty("com.exasol.log.port", "3000");
+        final String logLevel = System.getProperty("com.exasol.log.level", "ALL");
+        final String address = debugHost + ":" + debugPort;
+        return Map.of("DEBUG_ADDRESS", address, "LOG_LEVEL", logLevel);
     }
 
     public void dropCreatedObjects() {
