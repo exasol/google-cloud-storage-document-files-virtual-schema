@@ -3,11 +3,13 @@ package com.exasol.adapter.document.files;
 import static com.exasol.adapter.document.GenericUdfCallHandler.*;
 
 import java.io.*;
+import java.net.InetSocketAddress;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Path;
 import java.sql.*;
 import java.util.*;
 import java.util.concurrent.TimeoutException;
+import java.util.logging.Logger;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -24,6 +26,8 @@ import com.exasol.udfdebugging.UdfTestSetup;
 import jakarta.json.*;
 
 public class IntegrationTestSetup implements AutoCloseable {
+    private static final Logger LOG = Logger.getLogger(IntegrationTestSetup.class.getName());
+
     private static final String ADAPTER_JAR = "document-files-virtual-schema-dist-7.2.0-google-cloud-storage-1.2.0.jar";
     private final ExasolTestSetup exasolTestSetup;
     private final Connection connection;
@@ -99,8 +103,10 @@ public class IntegrationTestSetup implements AutoCloseable {
     }
 
     public ConnectionDefinition createConnectionDefinition(final JsonObjectBuilder details) {
+        final String json = toJson(details.build());
+        LOG.info(() -> "Using connection definition " + json);
         return this.exasolObjectFactory.createConnectionDefinition("GCS_CONNECTION_" + System.currentTimeMillis(), "",
-                "", toJson(details.build()));
+                "", json);
     }
 
     private String toJson(final JsonObject configJson) {
@@ -114,8 +120,10 @@ public class IntegrationTestSetup implements AutoCloseable {
     }
 
     private Optional<String> getHostOverride() {
-        return this.gcsTestSetup.getHostOverride()
-                .map(address -> this.exasolTestSetup.makeTcpServiceAccessibleFromDatabase(address).toString());
+        return this.gcsTestSetup.getHostOverride().map(address -> {
+            final InetSocketAddress newAddress = this.exasolTestSetup.makeTcpServiceAccessibleFromDatabase(address);
+            return newAddress.getHostString() + ":" + newAddress.getPort();
+        });
     }
 
     private AdapterScript createAdapterScript(final ExasolSchema adapterSchema)
