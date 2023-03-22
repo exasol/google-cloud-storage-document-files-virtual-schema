@@ -10,6 +10,10 @@ This release adds automatic schema inference for Parquet files. This means that 
 
 * #24: Added auto-inference for Parquet files
 
+## Refactoring
+
+* #20: Allowed setting DEBUG_ADDRESS and LOG_LEVEL via system properties
+
 ## Dependency Updates
 
 ### Compile Dependency Updates
