@@ -3,11 +3,13 @@ package com.exasol.adapter.document.files;
 import static com.exasol.adapter.document.GenericUdfCallHandler.*;
 
 import java.io.*;
+import java.net.InetSocketAddress;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Path;
 import java.sql.*;
 import java.util.*;
 import java.util.concurrent.TimeoutException;
+import java.util.logging.Logger;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -19,13 +21,14 @@ import com.exasol.dbbuilder.dialects.DatabaseObject;
 import com.exasol.dbbuilder.dialects.exasol.*;
 import com.exasol.dbbuilder.dialects.exasol.udf.UdfScript;
 import com.exasol.exasoltestsetup.ExasolTestSetup;
-import com.exasol.exasoltestsetup.ServiceAddress;
 import com.exasol.udfdebugging.UdfTestSetup;
 
 import jakarta.json.*;
 
 public class IntegrationTestSetup implements AutoCloseable {
-    private static final String ADAPTER_JAR = "document-files-virtual-schema-dist-7.1.1-google-cloud-storage-1.1.2.jar";
+    private static final Logger LOG = Logger.getLogger(IntegrationTestSetup.class.getName());
+
+    private static final String ADAPTER_JAR = "document-files-virtual-schema-dist-7.2.0-google-cloud-storage-1.2.0.jar";
     private final ExasolTestSetup exasolTestSetup;
     private final Connection connection;
     private final Statement statement;
@@ -100,8 +103,10 @@ public class IntegrationTestSetup implements AutoCloseable {
     }
 
     public ConnectionDefinition createConnectionDefinition(final JsonObjectBuilder details) {
+        final String json = toJson(details.build());
+        LOG.info(() -> "Using connection definition " + json);
         return this.exasolObjectFactory.createConnectionDefinition("GCS_CONNECTION_" + System.currentTimeMillis(), "",
-                "", toJson(details.build()));
+                "", json);
     }
 
     private String toJson(final JsonObject configJson) {
@@ -115,8 +120,10 @@ public class IntegrationTestSetup implements AutoCloseable {
     }
 
     private Optional<String> getHostOverride() {
-        return this.gcsTestSetup.getHostOverride().map(address -> this.exasolTestSetup
-                .makeTcpServiceAccessibleFromDatabase(ServiceAddress.parse(address)).toString());
+        return this.gcsTestSetup.getHostOverride().map(address -> {
+            final InetSocketAddress newAddress = this.exasolTestSetup.makeTcpServiceAccessibleFromDatabase(address);
+            return newAddress.getHostString() + ":" + newAddress.getPort();
+        });
     }
 
     private AdapterScript createAdapterScript(final ExasolSchema adapterSchema)
@@ -164,11 +171,19 @@ public class IntegrationTestSetup implements AutoCloseable {
         if (!debugProperty.isBlank() || !profileProperty.isBlank()) {
             properties.put("MAX_PARALLEL_UDFS", "1");
         }
-        if (System.getProperty("test.vs-logs", "false").equals("true")) {
-            properties.put("DEBUG_ADDRESS", "127.0.0.1:3001");
-            properties.put("LOG_LEVEL", "ALL");
-        }
+        properties.putAll(debugProperties());
         return properties;
+    }
+
+    private Map<String, String> debugProperties() {
+        final String debugHost = System.getProperty("com.exasol.log.host", null);
+        if (debugHost == null) {
+            return Collections.emptyMap();
+        }
+        final String debugPort = System.getProperty("com.exasol.log.port", "3000");
+        final String logLevel = System.getProperty("com.exasol.log.level", "ALL");
+        final String address = debugHost + ":" + debugPort;
+        return Map.of("DEBUG_ADDRESS", address, "LOG_LEVEL", logLevel);
     }
 
     public void dropCreatedObjects() {

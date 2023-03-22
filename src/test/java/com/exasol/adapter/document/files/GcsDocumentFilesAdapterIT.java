@@ -51,7 +51,9 @@ class GcsDocumentFilesAdapterIT extends AbstractDocumentFilesAdapterIT {
 
     @AfterAll
     static void afterAll() throws Exception {
-        testBucket.close();
+        if (testBucket != null) {
+            testBucket.close();
+        }
         SETUP.close();
         gcsTestSetup.close();
     }

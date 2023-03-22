@@ -1,6 +1,7 @@
 package com.exasol.adapter.document.files.gcstestsetup;
 
 import java.io.*;
+import java.net.InetSocketAddress;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Optional;
@@ -52,7 +53,7 @@ public class OnlineGcsTestSetup implements GcsTestSetup {
     }
 
     @Override
-    public Optional<String> getHostOverride() {
+    public Optional<InetSocketAddress> getHostOverride() {
         return Optional.empty();
     }
 }

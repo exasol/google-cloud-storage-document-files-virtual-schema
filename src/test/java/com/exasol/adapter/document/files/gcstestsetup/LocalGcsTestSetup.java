@@ -1,7 +1,9 @@
 package com.exasol.adapter.document.files.gcstestsetup;
 
+import java.net.InetSocketAddress;
 import java.nio.charset.StandardCharsets;
 import java.util.Optional;
+import java.util.logging.Logger;
 
 import org.testcontainers.containers.GenericContainer;
 
@@ -10,24 +12,31 @@ import com.google.cloud.storage.Storage;
 import com.google.cloud.storage.StorageOptions;
 
 public class LocalGcsTestSetup implements GcsTestSetup {
+    private static final Logger LOG = Logger.getLogger(LocalGcsTestSetup.class.getName());
     private static final int PORT_IN_CONTAINER = 4443;
     private final GenericContainer<? extends GenericContainer<?>> container;
-    private final String host;
+    private final InetSocketAddress address;
 
     public LocalGcsTestSetup() {
-        this.container = new GenericContainer<>("fsouza/fake-gcs-server:1.34");
+        this.container = new GenericContainer<>("fsouza/fake-gcs-server:1.44");
         this.container.addExposedPort(PORT_IN_CONTAINER);
-        this.container
-                .withCreateContainerCmdModifier(cmd -> cmd.withEntrypoint("/bin/fake-gcs-server", "-scheme", "http"));
+        this.container.withCreateContainerCmdModifier(cmd -> cmd.withEntrypoint("/bin/fake-gcs-server", //
+                "-scheme", "http", //
+                "-port", String.valueOf(PORT_IN_CONTAINER)));
         this.container.start();
-        final Integer portOnHost = this.container.getMappedPort(PORT_IN_CONTAINER);
-        this.host = this.container.getHost() + ":" + portOnHost;
+        this.address = new InetSocketAddress(this.container.getHost(), this.container.getMappedPort(PORT_IN_CONTAINER));
     }
 
     @Override
     public Storage getGcsClient() {
-        return StorageOptions.newBuilder().setHost("http://" + this.host).setProjectId("test-project")
-                .setCredentials(NoCredentials.getInstance()).build().getService();
+        final String gcsHost = "http://" + this.address.getHostString() + ":" + this.address.getPort();
+        LOG.info(() -> "Connecting to GCS at " + gcsHost);
+        return StorageOptions.newBuilder() //
+                .setHost(gcsHost) //
+                .setProjectId("test-project") //
+                .setCredentials(NoCredentials.getInstance()) //
+                .build() //
+                .getService();
     }
 
     @Override
@@ -47,7 +56,7 @@ public class LocalGcsTestSetup implements GcsTestSetup {
     }
 
     @Override
-    public Optional<String> getHostOverride() {
-        return Optional.of(this.host);
+    public Optional<InetSocketAddress> getHostOverride() {
+        return Optional.of(address);
     }
 }
