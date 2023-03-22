@@ -29,30 +29,7 @@
             </properties>
         </profile>
     </profiles>
-    <!-- 
-
-        <dependencyManagement>
-            <dependencies>
-                <dependency>
-                    <groupId>com.google.cloud</groupId>
-                    <artifactId>libraries-bom</artifactId>
-                    <version>26.10.0</version>
-                    <type>pom</type>
-                    <scope>import</scope>
-                </dependency>
-            </dependencies>
-        </dependencyManagement>
-    -->
     <dependencies>
-        <!-- override to avoid NoSuchMethodException -->
-        <!-- 
-
-            <dependency>
-                <groupId>com.fasterxml.jackson.core</groupId>
-                <artifactId>jackson-core</artifactId>
-                <version>2.14.2</version>
-            </dependency>
-        -->
         <dependency>
             <groupId>com.exasol</groupId>
             <artifactId>virtual-schema-common-document-files</artifactId>
