@@ -203,6 +203,14 @@
                         <!-- org.apache.hadoop:hadoop-hdfs-client:jar:3.3.4 -->
                         <!-- Rationale for exclusion: No update available, yet. -->
                         <exclude>sonatype-2022-5732</exclude>
+                        <!-- com.fasterxml.jackson.core:jackson-core:jar:2.14.1
+                        We assume that only trusted input files are used. -->
+                        <exclude>sonatype-2022-6438</exclude>
+                        <!-- Transitive dependency fr.turri:aXMLRPC used by
+                        com.exasol:bucketfs-java.
+                        CVE-2020-36641 is reported to be fixed in aXMLRPC 1.12.1. We use version 1.13.0, so this is a false
+                        positive. -->
+                        <exclude>CVE-2020-36641</exclude>
                     </excludeVulnerabilityIds>
                 </configuration>
             </plugin>
