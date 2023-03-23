@@ -6,7 +6,7 @@ Code name: Fix performance regression tests
 
 This release fixes execution of performance regression tests.
 
-## Features
+## Bugfixes
 
 * #27: Fixed performance regression tests
 
