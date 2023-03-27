@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.exasol</groupId>
     <artifactId>google-cloud-storage-document-files-virtual-schema</artifactId>
-    <version>1.2.0</version>
+    <version>1.2.1</version>
     <name>Virtual Schema for document data in files on Google Cloud Storage</name>
     <description>Adapter for document data access from files from Google Cloud Storage.</description>
     <url>https://github.com/exasol/google-cloud-storage-document-files-virtual-schema/</url>
@@ -139,7 +139,7 @@
             <plugin>
                 <groupId>com.exasol</groupId>
                 <artifactId>project-keeper-maven-plugin</artifactId>
-                <version>2.9.5</version>
+                <version>2.9.6</version>
                 <executions>
                     <execution>
                         <goals>
@@ -196,7 +196,7 @@
     <parent>
         <artifactId>google-cloud-storage-document-files-virtual-schema-generated-parent</artifactId>
         <groupId>com.exasol</groupId>
-        <version>1.2.0</version>
+        <version>1.2.1</version>
         <relativePath>pk_generated_parent.pom</relativePath>
     </parent>
 </project>
