@@ -12,6 +12,7 @@ Code name:
 
 ### Compile Dependency Updates
 
+* Updated `com.exasol:virtual-schema-common-document-files:7.2.0` to `7.2.1`
 * Updated `com.google.cloud:google-cloud-storage:2.20.1` to `2.22.0`
 
 ### Test Dependency Updates
@@ -19,6 +20,7 @@ Code name:
 * Updated `com.exasol:exasol-test-setup-abstraction-java:2.0.0` to `2.0.1`
 * Removed `com.exasol:exasol-testcontainers:6.5.1`
 * Updated `com.exasol:hamcrest-resultset-matcher:1.5.2` to `1.5.3`
+* Updated `com.exasol:virtual-schema-common-document-files:7.2.0` to `7.2.1`
 * Updated `org.jacoco:org.jacoco.agent:0.8.8` to `0.8.9`
 * Removed `org.junit.jupiter:junit-jupiter-engine:5.9.2`
 * Updated `org.mockito:mockito-core:5.2.0` to `5.3.0`

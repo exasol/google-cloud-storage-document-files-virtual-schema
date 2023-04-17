@@ -9,7 +9,7 @@
     <url>https://github.com/exasol/google-cloud-storage-document-files-virtual-schema/</url>
     <properties>
         <org.testcontainers.version>1.18.0</org.testcontainers.version>
-        <vs-common-document-files.version>7.2.0</vs-common-document-files.version>
+        <vs-common-document-files.version>7.2.1</vs-common-document-files.version>
     </properties>
     <profiles>
         <profile>
@@ -162,9 +162,6 @@
                         <exclude>sonatype-2020-0026</exclude>
                         <!-- org.apache.hadoop:hadoop-common:jar:3.3.4 -->
                         <!-- Rationale for exclusion: No update available, yet. -->
-                        <exclude>sonatype-2022-5820</exclude>
-                        <!-- org.apache.hadoop:hadoop-hdfs-client:jar:3.3.4 -->
-                        <!-- Rationale for exclusion: No update available, yet. -->
                         <exclude>sonatype-2022-5732</exclude>
                         <!-- com.fasterxml.jackson.core:jackson-core:jar:2.14.1
                         We assume that only trusted input files are used. -->
@@ -175,6 +172,16 @@
                         positive. -->
                         <exclude>CVE-2020-36641</exclude>
                     </excludeVulnerabilityIds>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.basepom.maven</groupId>
+                <artifactId>duplicate-finder-maven-plugin</artifactId>
+                <configuration>
+                    <!-- org.apache.parquet:parquet-column and org.apache.parquet:parquet-hadoop both contain classes shaded.parquet.it.unimi.dsi.fastutil.** -->
+                    <failBuildInCaseOfEqualContentConflict>false</failBuildInCaseOfEqualContentConflict>
+                    <failBuildInCaseOfConflict>false</failBuildInCaseOfConflict>
+                    <printEqualFiles>false</printEqualFiles>
                 </configuration>
             </plugin>
         </plugins>
