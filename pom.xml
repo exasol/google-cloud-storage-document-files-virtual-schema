@@ -3,14 +3,13 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.exasol</groupId>
     <artifactId>google-cloud-storage-document-files-virtual-schema</artifactId>
-    <version>1.2.1</version>
+    <version>1.2.2</version>
     <name>Virtual Schema for document data in files on Google Cloud Storage</name>
     <description>Adapter for document data access from files from Google Cloud Storage.</description>
     <url>https://github.com/exasol/google-cloud-storage-document-files-virtual-schema/</url>
     <properties>
-        <junit.version>5.9.2</junit.version>
-        <org.testcontainers.version>1.17.6</org.testcontainers.version>
-        <vs-common-document-files.version>7.2.0</vs-common-document-files.version>
+        <org.testcontainers.version>1.18.0</org.testcontainers.version>
+        <vs-common-document-files.version>7.2.1</vs-common-document-files.version>
     </properties>
     <profiles>
         <profile>
@@ -43,7 +42,7 @@
         <dependency>
             <groupId>com.google.cloud</groupId>
             <artifactId>google-cloud-storage</artifactId>
-            <version>2.20.1</version>
+            <version>2.22.0</version>
         </dependency>
         <!-- Test dependencies -->
         <dependency>
@@ -61,20 +60,14 @@
         </dependency>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-engine</artifactId>
-            <version>${junit.version}</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-params</artifactId>
-            <version>${junit.version}</version>
+            <version>5.9.2</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-core</artifactId>
-            <version>5.2.0</version>
+            <version>5.3.0</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -111,20 +104,13 @@
         <dependency>
             <groupId>com.exasol</groupId>
             <artifactId>hamcrest-resultset-matcher</artifactId>
-            <version>1.5.2</version>
+            <version>1.5.3</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>com.exasol</groupId>
             <artifactId>exasol-test-setup-abstraction-java</artifactId>
-            <version>2.0.0</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <!-- Explicitly upgrade testcontainers to fix container reuse. -->
-            <groupId>com.exasol</groupId>
-            <artifactId>exasol-testcontainers</artifactId>
-            <version>6.5.1</version>
+            <version>2.0.1</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -139,7 +125,7 @@
             <plugin>
                 <groupId>com.exasol</groupId>
                 <artifactId>project-keeper-maven-plugin</artifactId>
-                <version>2.9.6</version>
+                <version>2.9.7</version>
                 <executions>
                     <execution>
                         <goals>
@@ -176,9 +162,6 @@
                         <exclude>sonatype-2020-0026</exclude>
                         <!-- org.apache.hadoop:hadoop-common:jar:3.3.4 -->
                         <!-- Rationale for exclusion: No update available, yet. -->
-                        <exclude>sonatype-2022-5820</exclude>
-                        <!-- org.apache.hadoop:hadoop-hdfs-client:jar:3.3.4 -->
-                        <!-- Rationale for exclusion: No update available, yet. -->
                         <exclude>sonatype-2022-5732</exclude>
                         <!-- com.fasterxml.jackson.core:jackson-core:jar:2.14.1
                         We assume that only trusted input files are used. -->
@@ -191,12 +174,22 @@
                     </excludeVulnerabilityIds>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.basepom.maven</groupId>
+                <artifactId>duplicate-finder-maven-plugin</artifactId>
+                <configuration>
+                    <!-- org.apache.parquet:parquet-column and org.apache.parquet:parquet-hadoop both contain classes shaded.parquet.it.unimi.dsi.fastutil.** -->
+                    <failBuildInCaseOfEqualContentConflict>false</failBuildInCaseOfEqualContentConflict>
+                    <failBuildInCaseOfConflict>false</failBuildInCaseOfConflict>
+                    <printEqualFiles>false</printEqualFiles>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
     <parent>
         <artifactId>google-cloud-storage-document-files-virtual-schema-generated-parent</artifactId>
         <groupId>com.exasol</groupId>
-        <version>1.2.1</version>
+        <version>1.2.2</version>
         <relativePath>pk_generated_parent.pom</relativePath>
     </parent>
 </project>
