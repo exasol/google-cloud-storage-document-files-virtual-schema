@@ -21,7 +21,7 @@ Code name:
 * Updated `com.exasol:hamcrest-resultset-matcher:1.5.2` to `1.5.3`
 * Updated `org.jacoco:org.jacoco.agent:0.8.8` to `0.8.9`
 * Removed `org.junit.jupiter:junit-jupiter-engine:5.9.2`
-* Updated `org.mockito:mockito-core:5.2.0` to `5.4.0`
+* Updated `org.mockito:mockito-core:5.2.0` to `5.3.0`
 * Updated `org.testcontainers:junit-jupiter:1.17.6` to `1.18.0`
 * Updated `org.testcontainers:localstack:1.17.6` to `1.18.0`
 
