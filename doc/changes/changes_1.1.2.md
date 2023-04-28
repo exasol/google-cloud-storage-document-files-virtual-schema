@@ -10,10 +10,10 @@ Updated dependencies to fix vulnerabilities and renamed error code prefix from `
 
 * #21: Fixed vulnerabilities
   * [org.apache.hadoop:hadoop-common:jar:3.3.4](https://ossindex.sonatype.org/component/pkg:maven/org.apache.hadoop/hadoop-common@3.3.4?utm_source=ossindex-client&utm_medium=integration&utm_content=1.8.1) in compile
-    * [sonatype-2022-5820](https://ossindex.sonatype.org/vulnerability/sonatype-2022-5820): 1 vulnerability (8.2)
+    * sonatype-2022-5820: 1 vulnerability (8.2)
   * [org.apache.hadoop:hadoop-hdfs-client:jar:3.3.4](https://ossindex.sonatype.org/component/pkg:maven/org.apache.hadoop/hadoop-hdfs-client@3.3.4?utm_source=ossindex-client&utm_medium=integration&utm_content=1.8.1) in compile
-    * [sonatype-2022-5732](https://ossindex.sonatype.org/vulnerability/sonatype-2022-5732): 1 vulnerability (8.6)
   * [org.apache.commons:commons-text:jar:1.9](https://ossindex.sonatype.org/component/pkg:maven/org.apache.commons/commons-text@1.9?utm_source=ossindex-client&utm_medium=integration&utm_content=1.8.1) in compile
+    * sonatype-2022-5732: 1 vulnerability (8.6)
     * CVE-2022-42889, severity CWE-94: Improper Control of Generation of Code ('Code Injection') (9.8)
   * [com.google.protobuf:protobuf-java:jar:3.21.6](https://ossindex.sonatype.org/component/pkg:maven/com.google.protobuf/protobuf-java@3.21.6?utm_source=ossindex-client&utm_medium=integration&utm_content=1.8.1) in compile
     * CVE-2022-3171, severity CWE-400: Uncontrolled Resource Consumption ('Resource Exhaustion') (7.5)
