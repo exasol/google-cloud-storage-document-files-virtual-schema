@@ -1,4 +1,4 @@
-# Virtual Schema for Document Data in Files on Google Cloud Storage 1.3.1, released 2023-05-03
+# Virtual Schema for Document Data in Files on Google Cloud Storage 1.3.1, released 2023-05-08
 
 Code name: CSV Performance Regression Tests
 
