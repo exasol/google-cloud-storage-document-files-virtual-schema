@@ -18,7 +18,7 @@
 | [Virtual Schema for document data in files][0]  | [MIT License][1]                  |
 | [JUnit Jupiter Params][10]                      | [Eclipse Public License v2.0][11] |
 | [mockito-core][12]                              | [The MIT License][13]             |
-| [EqualsVerifier | release normal jar][14]       | [Apache License, Version 2.0][5]  |
+| [EqualsVerifier \| release normal jar][14]      | [Apache License, Version 2.0][5]  |
 | [Testcontainers :: JUnit Jupiter Extension][15] | [MIT][16]                         |
 | [Testcontainers :: Localstack][15]              | [MIT][16]                         |
 | [Test Database Builder for Java][17]            | [MIT License][18]                 |
@@ -41,10 +41,10 @@
 | [Versions Maven Plugin][36]                             | [Apache License, Version 2.0][5]              |
 | [duplicate-finder-maven-plugin Maven Mojo][37]          | [Apache License 2.0][38]                      |
 | [Project keeper maven plugin][39]                       | [The MIT License][40]                         |
-| [Apache Maven Assembly Plugin][41]                      | [Apache License, Version 2.0][5]              |
+| [Apache Maven Assembly Plugin][41]                      | [Apache-2.0][5]                               |
 | [Apache Maven JAR Plugin][42]                           | [Apache License, Version 2.0][5]              |
 | [Artifact reference checker and unifier][43]            | [MIT License][44]                             |
-| [Apache Maven Dependency Plugin][45]                    | [Apache License, Version 2.0][5]              |
+| [Apache Maven Dependency Plugin][45]                    | [Apache-2.0][5]                               |
 | [Maven Failsafe Plugin][46]                             | [Apache-2.0][5]                               |
 | [JaCoCo :: Maven Plugin][47]                            | [Eclipse Public License 2.0][28]              |
 | [error-code-crawler-maven-plugin][48]                   | [MIT License][49]                             |
@@ -70,7 +70,7 @@
 [12]: https://github.com/mockito/mockito
 [13]: https://github.com/mockito/mockito/blob/main/LICENSE
 [14]: https://www.jqno.nl/equalsverifier
-[15]: https://testcontainers.org
+[15]: https://java.testcontainers.org
 [16]: http://opensource.org/licenses/MIT
 [17]: https://github.com/exasol/test-db-builder-java/
 [18]: https://github.com/exasol/test-db-builder-java/blob/main/LICENSE
@@ -92,7 +92,7 @@
 [34]: https://sonatype.github.io/ossindex-maven/maven-plugin/
 [35]: https://maven.apache.org/surefire/maven-surefire-plugin/
 [36]: https://www.mojohaus.org/versions/versions-maven-plugin/
-[37]: https://github.com/basepom/duplicate-finder-maven-plugin
+[37]: https://basepom.github.io/duplicate-finder-maven-plugin
 [38]: http://www.apache.org/licenses/LICENSE-2.0.html
 [39]: https://github.com/exasol/project-keeper/
 [40]: https://github.com/exasol/project-keeper/blob/main/LICENSE
