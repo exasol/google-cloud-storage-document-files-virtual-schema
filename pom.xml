@@ -43,12 +43,6 @@
             <artifactId>google-cloud-storage</artifactId>
             <version>2.27.1</version>
         </dependency>
-        <dependency>
-            <!-- Upgrade transitive dependency of com.google.cloud:google-cloud-storage to fix CVE-2023-2976, CWE-552: Files or Directories Accessible to External Parties (7.1) -->
-            <groupId>com.google.guava</groupId>
-            <artifactId>guava</artifactId>
-            <version>32.1.2-jre</version>
-        </dependency>
         <!-- Test dependencies -->
         <dependency>
             <groupId>org.hamcrest</groupId>

@@ -22,7 +22,7 @@ This release fixes the following vulnerabilities in dependencies:
 
 * Updated `com.exasol:virtual-schema-common-document-files:7.3.3` to `7.3.4`
 * Updated `com.google.cloud:google-cloud-storage:2.23.0` to `2.27.1`
-* Updated `com.google.guava:guava:32.1.1-jre` to `32.1.2-jre`
+* Removed `com.google.guava:guava:32.1.1-jre`
 
 ### Test Dependency Updates
 
