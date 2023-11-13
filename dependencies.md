@@ -60,7 +60,7 @@
 [8]: https://junit.org/junit5/
 [9]: https://www.eclipse.org/legal/epl-v20.html
 [10]: https://github.com/mockito/mockito
-[11]: https://github.com/mockito/mockito/blob/main/LICENSE
+[11]: https://opensource.org/licenses/MIT
 [12]: https://www.jqno.nl/equalsverifier
 [13]: https://java.testcontainers.org
 [14]: http://opensource.org/licenses/MIT
