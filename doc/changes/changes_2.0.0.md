@@ -1,4 +1,4 @@
-# Virtual Schema for Document Data in Files on Google Cloud Storage 2.0.0, released 2023-12-13
+# Virtual Schema for Document Data in Files on Google Cloud Storage 2.0.0, released 2023-12-14
 
 Code name: Support Exasol 8
 
