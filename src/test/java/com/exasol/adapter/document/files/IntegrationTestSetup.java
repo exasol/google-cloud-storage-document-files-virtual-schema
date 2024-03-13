@@ -135,7 +135,7 @@ public class IntegrationTestSetup implements AutoCloseable {
     }
 
     @Override
-    public void close() throws Exception {
+    public void close() {
         try {
             this.udfTestSetup.close();
             this.statement.close();

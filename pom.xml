@@ -122,6 +122,16 @@
     <build>
         <plugins>
             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <compilerArgs>
+                        <arg>-Xlint:all,-path</arg>
+                        <arg>-Werror</arg>
+                    </compilerArgs>
+                </configuration>
+            </plugin>
+            <plugin>
                 <groupId>com.exasol</groupId>
                 <artifactId>project-keeper-maven-plugin</artifactId>
                 <version>4.2.0</version>
@@ -145,6 +155,13 @@
                 <artifactId>maven-failsafe-plugin</artifactId>
                 <configuration>
                     <useModulePath>false</useModulePath>
+                    <systemPropertyVariables>
+                        <!-- Avoid exception running integration tests caused by wrong XML parser (xerces:xercesImpl) beeing loaded:
+                            java.lang.IllegalArgumentException: Property 'http://javax.xml.XMLConstants/property/accessExternalDTD' is not recognized.
+                            at org.apache.xerces.jaxp.DocumentBuilderFactoryImpl.setAttribute(Unknown Source)
+                            We can't exclude xerces:xercesImpl because it's required for performance tests, so we explicitly select the correct parser here. -->
+                        <javax.xml.parsers.DocumentBuilderFactory>com.sun.org.apache.xerces.internal.jaxp.DocumentBuilderFactoryImpl</javax.xml.parsers.DocumentBuilderFactory>
+                    </systemPropertyVariables>
                 </configuration>
             </plugin>
             <plugin>
@@ -152,10 +169,8 @@
                 <artifactId>ossindex-maven-plugin</artifactId>
                 <configuration>
                     <excludeVulnerabilityIds>
-                        <!-- Transitive dependency fr.turri:aXMLRPC used by com.exasol:bucketfs-java.
-                        CVE-2020-36641 is reported to be fixed in aXMLRPC 1.12.1. We use version 1.13.0, so this is a false
-                        positive. -->
-                        <exclude>CVE-2020-36641</exclude>
+                         <!-- Transitive test dependency xerces:xercesImpl:jar:2.12.2. We assume that we only connect to the known endpoint ExaOperations.-->
+                         <exclude>CVE-2017-10355</exclude>
                     </excludeVulnerabilityIds>
                 </configuration>
             </plugin>
