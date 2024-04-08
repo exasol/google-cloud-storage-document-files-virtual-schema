@@ -11,7 +11,15 @@ build:
   freeDiskSpace: false
   exasolDbVersions:
     - "8.24.0"
-    - "7.1.25"
-excludes:
-  # Configure Google credentials
-  - "E-PK-CORE-18: Outdated content: '.github/workflows/ci-build.yml'"
+    - "7.1.26"
+  workflows:
+    - name: ci-build.yml
+      stepCustomizations:
+        - action: INSERT_AFTER
+          stepId: enable-testcontainer-reuse
+          content:
+            name: Configure Google credentials
+            id: configure-google-credentials
+            run: echo "$GC_KEY" > google-key.json
+            env:
+              GC_KEY: ${{ secrets.GC_KEY }}
