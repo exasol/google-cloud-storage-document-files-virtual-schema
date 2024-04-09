@@ -28,7 +28,7 @@ import jakarta.json.*;
 public class IntegrationTestSetup implements AutoCloseable {
     private static final Logger LOG = Logger.getLogger(IntegrationTestSetup.class.getName());
 
-    private static final String ADAPTER_JAR = "document-files-virtual-schema-dist-8.0.2-google-cloud-storage-2.0.1.jar";
+    private static final String ADAPTER_JAR = "document-files-virtual-schema-dist-8.0.3-google-cloud-storage-2.0.2.jar";
     private final ExasolTestSetup exasolTestSetup;
     private final Connection connection;
     private final Statement statement;

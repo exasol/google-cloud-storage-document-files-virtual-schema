@@ -46,7 +46,7 @@
 | [Artifact reference checker and unifier][43]            | [MIT License][44]                |
 | [Apache Maven Dependency Plugin][45]                    | [Apache-2.0][5]                  |
 | [Maven Failsafe Plugin][46]                             | [Apache-2.0][5]                  |
-| [JaCoCo :: Maven Plugin][47]                            | [Eclipse Public License 2.0][26] |
+| [JaCoCo :: Maven Plugin][47]                            | [EPL-2.0][26]                    |
 | [error-code-crawler-maven-plugin][48]                   | [MIT License][49]                |
 | [Reproducible Build Maven Plugin][50]                   | [Apache 2.0][34]                 |
 
