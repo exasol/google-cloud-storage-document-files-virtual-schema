@@ -171,6 +171,9 @@
                     <excludeVulnerabilityIds>
                         <!-- Transitive test dependency xerces:xercesImpl:jar:2.12.2. We assume that we only connect to the known endpoint ExaOperations.-->
                         <exclude>CVE-2017-10355</exclude>
+                        <!-- Transitive dependency org.threeten:threetenbp via com.google.cloud:google-cloud-storage.
+                             We assume that google-cloud-storage uses the library correctly and does not trigger the NullPointerException. -->
+                        <exclude>CVE-2024-23081</exclude>
                     </excludeVulnerabilityIds>
                 </configuration>
             </plugin>

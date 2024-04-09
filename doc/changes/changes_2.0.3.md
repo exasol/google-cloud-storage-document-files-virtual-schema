@@ -5,3 +5,5 @@ Code name: Fix permissions for performance tests
 ## Summary
 
 This release fixes permissions for performance regression tests.
+
+**Excluded vulnerabilities:** This release contains dependency `org.threeten:threetenbp` with vulnerability CVE-2024-23081. We assume that `google-cloud-storage` uses the library correctly and does not trigger the NullPointerException.
