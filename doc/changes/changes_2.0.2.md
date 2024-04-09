@@ -16,11 +16,13 @@ This release fixed vulnerabilities CVE-2024-29025, CVE-2024-29133 & CVE-2024-291
 
 ### Compile Dependency Updates
 
+* Updated `com.exasol:virtual-schema-common-document-files:8.0.2` to `8.0.3`
 * Updated `com.google.cloud:google-cloud-storage:2.35.0` to `2.36.1`
 
 ### Test Dependency Updates
 
 * Updated `com.exasol:exasol-test-setup-abstraction-java:2.1.1` to `2.1.2`
+* Updated `com.exasol:virtual-schema-common-document-files:8.0.2` to `8.0.3`
 * Updated `nl.jqno.equalsverifier:equalsverifier:3.15.8` to `3.16.1`
 
 ### Plugin Dependency Updates
