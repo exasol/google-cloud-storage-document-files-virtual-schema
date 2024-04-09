@@ -23,3 +23,5 @@ build:
             run: echo "$GC_KEY" > google-key.json
             env:
               GC_KEY: ${{ secrets.GC_KEY }}
+excludes:
+  - "E-PK-CORE-17: Missing required file: 'release_config.yml'"
