@@ -2,7 +2,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <artifactId>google-cloud-storage-document-files-virtual-schema</artifactId>
-    <version>2.0.2</version>
+    <version>2.0.3</version>
     <name>Virtual Schema for document data in files on Google Cloud Storage</name>
     <description>Adapter for document data access from files from Google Cloud Storage.</description>
     <url>https://github.com/exasol/google-cloud-storage-document-files-virtual-schema/</url>
@@ -171,6 +171,12 @@
                     <excludeVulnerabilityIds>
                         <!-- Transitive test dependency xerces:xercesImpl:jar:2.12.2. We assume that we only connect to the known endpoint ExaOperations.-->
                         <exclude>CVE-2017-10355</exclude>
+                        <!-- Transitive dependency org.threeten:threetenbp via com.google.cloud:google-cloud-storage.
+                             We assume that google-cloud-storage uses the library correctly and does not trigger the NullPointerException. -->
+                        <exclude>CVE-2024-23081</exclude>
+                        <!-- Transitive dependency org.threeten:threetenbp via com.google.cloud:google-cloud-storage.
+                             We assume that google-cloud-storage uses the library correctly and does not trigger the StringIndexOutOfBoundsException. -->
+                        <exclude>CVE-2024-23082</exclude>
                     </excludeVulnerabilityIds>
                 </configuration>
             </plugin>
@@ -189,7 +195,7 @@
     <parent>
         <artifactId>google-cloud-storage-document-files-virtual-schema-generated-parent</artifactId>
         <groupId>com.exasol</groupId>
-        <version>2.0.2</version>
+        <version>2.0.3</version>
         <relativePath>pk_generated_parent.pom</relativePath>
     </parent>
 </project>
