@@ -25,14 +25,14 @@
 | [Matcher for SQL Result Sets][19]               | [MIT License][20]                |
 | [exasol-test-setup-abstraction-java][21]        | [MIT License][22]                |
 | [Performance Test Recorder Java][23]            | [MIT License][24]                |
-| [JaCoCo :: Agent][25]                           | [Eclipse Public License 2.0][26] |
+| [JaCoCo :: Agent][25]                           | [EPL-2.0][26]                    |
 
 ## Plugin Dependencies
 
 | Dependency                                              | License                          |
 | ------------------------------------------------------- | -------------------------------- |
 | [SonarQube Scanner for Maven][27]                       | [GNU LGPL 3][28]                 |
-| [Apache Maven Toolchains Plugin][29]                    | [Apache License, Version 2.0][5] |
+| [Apache Maven Toolchains Plugin][29]                    | [Apache-2.0][5]                  |
 | [Apache Maven Compiler Plugin][30]                      | [Apache-2.0][5]                  |
 | [Apache Maven Enforcer Plugin][31]                      | [Apache-2.0][5]                  |
 | [Maven Flatten Plugin][32]                              | [Apache Software Licenese][5]    |
@@ -42,7 +42,7 @@
 | [duplicate-finder-maven-plugin Maven Mojo][37]          | [Apache License 2.0][38]         |
 | [Project Keeper Maven plugin][39]                       | [The MIT License][40]            |
 | [Apache Maven Assembly Plugin][41]                      | [Apache-2.0][5]                  |
-| [Apache Maven JAR Plugin][42]                           | [Apache License, Version 2.0][5] |
+| [Apache Maven JAR Plugin][42]                           | [Apache-2.0][5]                  |
 | [Artifact reference checker and unifier][43]            | [MIT License][44]                |
 | [Apache Maven Dependency Plugin][45]                    | [Apache-2.0][5]                  |
 | [Maven Failsafe Plugin][46]                             | [Apache-2.0][5]                  |
