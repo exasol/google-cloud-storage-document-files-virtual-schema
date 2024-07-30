@@ -16,6 +16,7 @@ import org.junit.jupiter.api.*;
 import org.testcontainers.junit.jupiter.Testcontainers;
 
 import com.exasol.adapter.document.files.gcstestsetup.*;
+import com.exasol.bucketfs.Bucket;
 import com.exasol.bucketfs.BucketAccessException;
 import com.exasol.dbbuilder.dialects.DatabaseObjectException;
 import com.exasol.dbbuilder.dialects.exasol.ConnectionDefinition;
@@ -27,7 +28,7 @@ import com.exasol.exasoltestsetup.testcontainers.ExasolTestcontainerTestSetup;
 @Tag("integration")
 @Testcontainers
 class GcsDocumentFilesAdapterIT extends AbstractDocumentFilesAdapterIT {
-    private static IntegrationTestSetup SETUP;
+    private static IntegrationTestSetup setup;
     private static TestBucket testBucket;
     private static GcsTestSetup gcsTestSetup;
 
@@ -37,7 +38,7 @@ class GcsDocumentFilesAdapterIT extends AbstractDocumentFilesAdapterIT {
                 Path.of("cloudSetup/generated/testConfig.json")).getTestSetup();
         gcsTestSetup = getGcsTestSetup(exasolTestSetup);
         testBucket = new TestBucket(gcsTestSetup);
-        SETUP = new IntegrationTestSetup(exasolTestSetup, gcsTestSetup, testBucket.getBucket());
+        setup = new IntegrationTestSetup(exasolTestSetup, gcsTestSetup, testBucket.getBucket());
     }
 
     @NotNull
@@ -50,23 +51,28 @@ class GcsDocumentFilesAdapterIT extends AbstractDocumentFilesAdapterIT {
     }
 
     @AfterAll
-    static void afterAll() throws Exception {
+    static void afterAll() {
         if (testBucket != null) {
             testBucket.close();
         }
-        SETUP.close();
+        setup.close();
         gcsTestSetup.close();
     }
 
     @AfterEach
     void after() {
         testBucket.empty();
-        SETUP.dropCreatedObjects();
+        setup.dropCreatedObjects();
+    }
+
+    @Override
+    protected Bucket getBucketFSDefaultBucket() {
+        return setup.getBucket();
     }
 
     @Override
     protected Statement getStatement() {
-        return SETUP.getStatement();
+        return setup.getStatement();
     }
 
     @Override
@@ -92,16 +98,16 @@ class GcsDocumentFilesAdapterIT extends AbstractDocumentFilesAdapterIT {
 
     @Override
     protected void createVirtualSchema(final String schemaName, final String mapping) {
-        SETUP.createVirtualSchema(schemaName, mapping);
+        setup.createVirtualSchema(schemaName, mapping);
     }
 
     @Test
     void testInvalidConnection() throws BucketAccessException, TimeoutException {
-        SETUP.getBucket().uploadInputStream(() -> getClass().getClassLoader().getResourceAsStream("simpleMapping.json"),
+        setup.getBucket().uploadInputStream(() -> getClass().getClassLoader().getResourceAsStream("simpleMapping.json"),
                 "mapping.json");
-        final ConnectionDefinition connection = SETUP.getExasolObjectFactory()
+        final ConnectionDefinition connection = setup.getExasolObjectFactory()
                 .createConnectionDefinition("EMPTY_GCS_CONNECTION", "", "", "{");
-        final VirtualSchema.Builder virtualSchemaBuilder = SETUP
+        final VirtualSchema.Builder virtualSchemaBuilder = setup
                 .getPreconfiguredVirtualSchemaBuilder("EMPTY_CONNECTION_SCHEMA").connectionDefinition(connection)
                 .properties(Map.of("MAPPING", "/bfsdefault/default/mapping.json"));
         final DatabaseObjectException exception = assertThrows(DatabaseObjectException.class,
