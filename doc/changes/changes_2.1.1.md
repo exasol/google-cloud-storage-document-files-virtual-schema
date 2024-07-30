@@ -21,5 +21,6 @@ This release fixes vulnerability CVE-2024-25638 in `dnsjava:dnsjava:jar:3.4.0:co
 
 * Updated `com.exasol:virtual-schema-common-document-files:8.1.0` to `8.1.2`
 * Updated `org.junit.jupiter:junit-jupiter-params:5.10.2` to `5.10.3`
+* Added `org.slf4j:slf4j-jdk14:2.0.13`
 * Updated `org.testcontainers:junit-jupiter:1.19.8` to `1.20.0`
 * Updated `org.testcontainers:localstack:1.19.8` to `1.20.0`
