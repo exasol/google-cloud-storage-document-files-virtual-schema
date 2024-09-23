@@ -29,6 +29,7 @@ Any project that parses untrusted Protocol Buffers dataÂ containing an arbitra
 
 ### Test Dependency Updates
 
+* Added `com.exasol:exasol-testcontainers:7.1.1`
 * Updated `com.exasol:hamcrest-resultset-matcher:1.6.5` to `1.7.0`
 * Updated `nl.jqno.equalsverifier:equalsverifier:3.16.1` to `3.16.2`
 * Updated `org.hamcrest:hamcrest:2.2` to `3.0`
