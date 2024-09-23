@@ -128,6 +128,13 @@
             <scope>test</scope>
         </dependency>
         <dependency>
+            <!-- Fix java.lang.NoSuchMethodError: 'com.exasol.bucketfs.ReadEnabledBucket$Builder com.exasol.bucketfs.WriteEnabledBucket$Builder.allowAlternativeHostName. -->
+            <groupId>com.exasol</groupId>
+            <artifactId>bucketfs-java</artifactId>
+            <version>3.2.0</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
             <groupId>com.exasol</groupId>
             <artifactId>performance-test-recorder-java</artifactId>
             <version>0.1.3</version>
