@@ -1,4 +1,4 @@
-# Virtual Schema for Document Data in Files on Google Cloud Storage 2.1.2, released 2024-??-??
+# Virtual Schema for Document Data in Files on Google Cloud Storage 2.1.2, released 2024-09-23
 
 Code name: Fixed vulnerability CVE-2024-7254 in com.google.protobuf:protobuf-java:jar:3.25.3:compile
 
@@ -22,6 +22,10 @@ Any project that parses untrusted Protocol Buffers dataÂ containing an arbitra
 ### Compile Dependency Updates
 
 * Updated `com.google.cloud:google-cloud-storage:2.40.1` to `2.43.0`
+
+### Runtime Dependency Updates
+
+* Added `com.google.protobuf:protobuf-java:3.25.5`
 
 ### Test Dependency Updates
 

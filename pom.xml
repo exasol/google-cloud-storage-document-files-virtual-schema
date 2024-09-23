@@ -43,6 +43,13 @@
             <artifactId>google-cloud-storage</artifactId>
             <version>2.43.0</version>
         </dependency>
+        <dependency>
+            <!-- Fix CVE-2024-7254 in transitive dependency of google-cloud-storage -->
+            <groupId>com.google.protobuf</groupId>
+            <artifactId>protobuf-java</artifactId>
+            <version>3.25.5</version>
+            <scope>runtime</scope>
+        </dependency>
         <!-- Test dependencies -->
         <dependency>
             <groupId>org.hamcrest</groupId>
@@ -195,6 +202,16 @@
                     <failBuildInCaseOfEqualContentConflict>false</failBuildInCaseOfEqualContentConflict>
                     <failBuildInCaseOfConflict>false</failBuildInCaseOfConflict>
                     <printEqualFiles>false</printEqualFiles>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>versions-maven-plugin</artifactId>
+                <configuration>
+                    <excludes>
+                        <!-- Pin protobuf-java because google-cloud-storage uses 3.25.x instead of the latest 4.28.y -->
+                        <exclude>com.google.protobuf:protobuf-java:jar:*:*</exclude>
+                    </excludes>
                 </configuration>
             </plugin>
         </plugins>
