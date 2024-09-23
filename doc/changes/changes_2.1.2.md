@@ -32,6 +32,7 @@ Any project that parses untrusted Protocol Buffers dataÂ containing an arbitra
 * Added `com.exasol:bucketfs-java:3.2.0`
 * Added `com.exasol:exasol-testcontainers:7.1.1`
 * Updated `com.exasol:hamcrest-resultset-matcher:1.6.5` to `1.7.0`
+* Added `io.aiven:testcontainers-fake-gcs-server:0.2.0`
 * Updated `nl.jqno.equalsverifier:equalsverifier:3.16.1` to `3.16.2`
 * Updated `org.hamcrest:hamcrest:2.2` to `3.0`
 * Updated `org.junit.jupiter:junit-jupiter-params:5.10.3` to `5.11.0`
