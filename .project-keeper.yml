@@ -11,7 +11,7 @@ build:
   freeDiskSpace: true
   exasolDbVersions:
     - "8.31.0"
-    - "7.1.26" # Upgrade to 7.1.29 once https://github.com/exasol/virtual-schema-common-document-files/issues/169 is fixed
+    - "7.1.29"
   workflows:
     - name: ci-build.yml
       stepCustomizations:
