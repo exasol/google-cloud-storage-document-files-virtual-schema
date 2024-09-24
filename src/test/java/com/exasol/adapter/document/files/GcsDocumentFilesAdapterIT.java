@@ -55,8 +55,12 @@ class GcsDocumentFilesAdapterIT extends AbstractDocumentFilesAdapterIT {
         if (testBucket != null) {
             testBucket.close();
         }
-        setup.close();
-        gcsTestSetup.close();
+        if (setup != null) {
+            setup.close();
+        }
+        if (gcsTestSetup != null) {
+            gcsTestSetup.close();
+        }
     }
 
     @AfterEach

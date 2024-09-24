@@ -10,8 +10,8 @@ build:
   runnerOs: ubuntu-20.04
   freeDiskSpace: true
   exasolDbVersions:
-    - "8.27.0" # 8.29.1 not yet supported by exasol-testcontainers, see https://github.com/exasol/exasol-testcontainers/issues/258
-    - "7.1.26" # Upgrade to 7.1.29 once https://github.com/exasol/virtual-schema-common-document-files/issues/169 is fixed
+    - "8.31.0"
+    - "7.1.29"
   workflows:
     - name: ci-build.yml
       stepCustomizations:
@@ -23,5 +23,3 @@ build:
             run: echo "$GC_KEY" > google-key.json
             env:
               GC_KEY: ${{ secrets.GC_KEY }}
-excludes:
-  - "E-PK-CORE-17: Missing required file: 'release_config.yml'"
