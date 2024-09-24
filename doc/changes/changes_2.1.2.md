@@ -21,6 +21,7 @@ Any project that parses untrusted Protocol Buffers dataÂ containing an arbitra
 
 ### Compile Dependency Updates
 
+* Updated `com.exasol:virtual-schema-common-document-files:8.1.2` to `8.1.3`
 * Updated `com.google.cloud:google-cloud-storage:2.40.1` to `2.43.0`
 
 ### Runtime Dependency Updates
@@ -32,6 +33,7 @@ Any project that parses untrusted Protocol Buffers dataÂ containing an arbitra
 * Added `com.exasol:bucketfs-java:3.2.0`
 * Added `com.exasol:exasol-testcontainers:7.1.1`
 * Updated `com.exasol:hamcrest-resultset-matcher:1.6.5` to `1.7.0`
+* Updated `com.exasol:virtual-schema-common-document-files:8.1.2` to `8.1.3`
 * Added `io.aiven:testcontainers-fake-gcs-server:0.2.0`
 * Updated `nl.jqno.equalsverifier:equalsverifier:3.16.1` to `3.16.2`
 * Updated `org.hamcrest:hamcrest:2.2` to `3.0`
