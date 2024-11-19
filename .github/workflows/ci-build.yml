@@ -26,7 +26,7 @@ jobs:
       matrix:
         exasol_db_version: [
           8.31.0,
-          7.1.29
+          7.1.30
         ]
         
     env: {
@@ -50,7 +50,7 @@ jobs:
         uses: actions/setup-java@v4
         with:
           distribution: temurin
-          java-version: |
+          java-version: |-
             11
             17
           cache: maven
@@ -133,7 +133,7 @@ jobs:
         uses: actions/setup-java@v4
         with:
           distribution: temurin
-          java-version: |
+          java-version: |-
             11
             17
           cache: maven
