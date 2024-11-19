@@ -10,8 +10,8 @@ build:
   runnerOs: ubuntu-20.04
   freeDiskSpace: true
   exasolDbVersions:
-    - "8.31.0"
-    - "7.1.29"
+    - "8.31.0" # Tests fail with 8.32.0, see https://github.com/exasol/virtual-schema-common-document/issues/193
+    - "7.1.30"
   workflows:
     - name: ci-build.yml
       stepCustomizations:
