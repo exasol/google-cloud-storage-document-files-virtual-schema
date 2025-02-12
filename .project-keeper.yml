@@ -7,6 +7,7 @@ sources:
       - udf_coverage
 linkReplacements:
 build:
+  # UDFs in Exasol 7.1 require Ubuntu 20.04
   runnerOs: ubuntu-20.04
   freeDiskSpace: true
   exasolDbVersions:
@@ -16,6 +17,7 @@ build:
     - name: ci-build.yml
       stepCustomizations:
         - action: INSERT_AFTER
+          job: matrix-build
           stepId: enable-testcontainer-reuse
           content:
             name: Configure Google credentials
