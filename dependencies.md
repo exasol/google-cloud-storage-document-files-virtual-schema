@@ -26,7 +26,7 @@
 | [Matcher for SQL Result Sets][21]                | [MIT License][22]                |
 | [exasol-test-setup-abstraction-java][23]         | [MIT License][24]                |
 | [Performance Test Recorder Java][25]             | [MIT License][26]                |
-| [SLF4J JDK14 Provider][27]                       | [MIT License][28]                |
+| [SLF4J JDK14 Provider][27]                       | [MIT][28]                        |
 | [JaCoCo :: Agent][29]                            | [EPL-2.0][30]                    |
 
 ## Runtime Dependencies
@@ -91,7 +91,7 @@
 [25]: https://github.com/exasol/performance-test-recorder-java/
 [26]: https://github.com/exasol/performance-test-recorder-java/blob/main/LICENSE
 [27]: http://www.slf4j.org
-[28]: http://www.opensource.org/licenses/mit-license.php
+[28]: https://opensource.org/license/mit
 [29]: https://www.eclemma.org/jacoco/index.html
 [30]: https://www.eclipse.org/legal/epl-2.0/
 [31]: https://developers.google.com/protocol-buffers/protobuf-java/
