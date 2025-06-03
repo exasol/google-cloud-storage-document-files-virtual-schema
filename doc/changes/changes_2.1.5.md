@@ -22,6 +22,10 @@ This issue has been fixed quite a while back now, but the OSSIndex unfortunately
 * Updated `com.exasol:virtual-schema-common-document-files:8.1.6` to `8.1.7`
 * Updated `com.google.cloud:google-cloud-storage:2.48.1` to `2.52.3`
 
+### Runtime Dependency Updates
+
+* Removed `com.google.protobuf:protobuf-java:3.25.5`
+
 ### Test Dependency Updates
 
 * Updated `com.exasol:exasol-test-setup-abstraction-java:2.1.7` to `2.1.8`

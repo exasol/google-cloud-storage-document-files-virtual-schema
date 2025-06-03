@@ -43,13 +43,6 @@
             <artifactId>google-cloud-storage</artifactId>
             <version>2.52.3</version>
         </dependency>
-        <dependency>
-            <!-- Fix CVE-2024-7254 in transitive dependency of google-cloud-storage -->
-            <groupId>com.google.protobuf</groupId>
-            <artifactId>protobuf-java</artifactId>
-            <version>3.25.5</version>
-            <scope>runtime</scope>
-        </dependency>
         <!-- Test dependencies -->
         <dependency>
             <groupId>org.hamcrest</groupId>
@@ -197,6 +190,8 @@
                         <!-- Transitive dependency org.threeten:threetenbp via com.google.cloud:google-cloud-storage.
                              We assume that google-cloud-storage uses the library correctly and does not trigger the StringIndexOutOfBoundsException. -->
                         <exclude>CVE-2024-23082</exclude>
+                        <!-- False positive in OSS Index for Exasol's JDBC driver because the fix version is missing. -->
+                        <exclude>CVE-2024-55551</exclude>
                     </excludeVulnerabilityIds>
                 </configuration>
             </plugin>
