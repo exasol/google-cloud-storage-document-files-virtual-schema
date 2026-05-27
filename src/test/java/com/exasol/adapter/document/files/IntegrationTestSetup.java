@@ -28,7 +28,7 @@ import jakarta.json.*;
 public class IntegrationTestSetup implements AutoCloseable {
     private static final Logger LOG = Logger.getLogger(IntegrationTestSetup.class.getName());
 
-    private static final String ADAPTER_JAR = "document-files-virtual-schema-dist-8.1.7-google-cloud-storage-2.1.6.jar";
+    private static final String ADAPTER_JAR = "document-files-virtual-schema-dist-9.0.1-google-cloud-storage-3.0.0.jar";
     private final ExasolTestSetup exasolTestSetup;
     private final Connection connection;
     private final Statement statement;
@@ -158,7 +158,7 @@ public class IntegrationTestSetup implements AutoCloseable {
             final ConnectionDefinition connection) {
         final VirtualSchema virtualSchema = getPreconfiguredVirtualSchemaBuilder(schemaName)
                 .connectionDefinition(connection)//
-                .properties(getVirtualSchemaProperties(mapping)).build();
+                .addProperties(getVirtualSchemaProperties(mapping)).build();
         this.createdObjects.add(virtualSchema);
         return virtualSchema;
     }
