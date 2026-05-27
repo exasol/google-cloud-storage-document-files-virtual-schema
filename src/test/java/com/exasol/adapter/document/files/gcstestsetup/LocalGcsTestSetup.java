@@ -20,7 +20,7 @@ public class LocalGcsTestSetup implements GcsTestSetup {
     private final InetSocketAddress address;
 
     public LocalGcsTestSetup() {
-        this.container = new FakeGcsServerContainer(DockerImageName.parse("fsouza/fake-gcs-server:1.50"));
+        this.container = new FakeGcsServerContainer(DockerImageName.parse("fsouza/fake-gcs-server:1.54.0"));
         this.container.start();
         this.address = new InetSocketAddress(this.container.getHost(), this.container.getMappedPort(PORT_IN_CONTAINER));
     }
