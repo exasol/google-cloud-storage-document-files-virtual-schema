@@ -202,6 +202,10 @@
                     <failBuildInCaseOfEqualContentConflict>false</failBuildInCaseOfEqualContentConflict>
                     <failBuildInCaseOfConflict>false</failBuildInCaseOfConflict>
                     <printEqualFiles>false</printEqualFiles>
+                    <ignoredResourcePatterns>
+                        <!-- See https://publicsuffix.org/ -->
+                        <ignoredResourcePattern>mozilla/public-suffix-list.txt</ignoredResourcePattern>
+                    </ignoredResourcePatterns>
                 </configuration>
             </plugin>
             <plugin>
