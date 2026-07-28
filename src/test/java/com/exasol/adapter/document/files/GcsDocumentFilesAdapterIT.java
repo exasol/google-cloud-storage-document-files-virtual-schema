@@ -13,7 +13,6 @@ import java.util.function.Supplier;
 
 import org.jetbrains.annotations.NotNull;
 import org.junit.jupiter.api.*;
-import org.testcontainers.junit.jupiter.Testcontainers;
 
 import com.exasol.adapter.document.files.gcstestsetup.*;
 import com.exasol.bucketfs.Bucket;
@@ -26,7 +25,6 @@ import com.exasol.exasoltestsetup.ExasolTestSetupFactory;
 import com.exasol.exasoltestsetup.testcontainers.ExasolTestcontainerTestSetup;
 
 @Tag("integration")
-@Testcontainers
 class GcsDocumentFilesAdapterIT extends AbstractDocumentFilesAdapterIT {
     private static IntegrationTestSetup setup;
     private static TestBucket testBucket;
