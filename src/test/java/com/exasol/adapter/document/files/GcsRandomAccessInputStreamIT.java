@@ -23,8 +23,12 @@ class GcsRandomAccessInputStreamIT extends RandomAccessInputStreamTestBase {
 
     @Override
     protected void cleanupTestSetup() {
-        this.testBucket.close();
-        this.testSetup.close();
+        if (this.testBucket != null) {
+            this.testBucket.close();
+        }
+        if (this.testSetup != null) {
+            this.testSetup.close();
+        }
     }
 
     @Override
