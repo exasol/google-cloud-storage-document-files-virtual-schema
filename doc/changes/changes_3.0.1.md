@@ -1,4 +1,4 @@
-# Virtual Schema for Document Data in Files on Google Cloud Storage 3.0.1, released 2026-??-??
+# Virtual Schema for Document Data in Files on Google Cloud Storage 3.0.1, released 2026-07-28
 
 Code name: Fixed vulnerabilities CVE-2017-7503, CVE-2017-10355, CVE-2026-54512, CVE-2026-54513, CVE-2026-54514, CVE-2026-54515, CVE-2026-54518, CVE-2026-59888, CVE-2026-59889, CVE-2026-9563
 
