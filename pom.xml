@@ -2,7 +2,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <artifactId>google-cloud-storage-document-files-virtual-schema</artifactId>
-    <version>3.1.0</version>
+    <version>3.1.1</version>
     <name>Virtual Schema for document data in files on Google Cloud Storage</name>
     <description>Adapter for document data access from files from Google Cloud Storage.</description>
     <url>https://github.com/exasol/google-cloud-storage-document-files-virtual-schema/</url>
@@ -32,7 +32,7 @@
                 <!-- Upgrade transitive dependency of com.google.cloud:google-cloud-storage to fix CVE-2026-45292 in io.opentelemetry:opentelemetry-api -->
                 <groupId>io.opentelemetry</groupId>
                 <artifactId>opentelemetry-bom</artifactId>
-                <version>1.64.0</version>
+                <version>1.65.0</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -40,7 +40,7 @@
                 <!-- Upgrade transitive dependency com.fasterxml.jackson.core:jackson-databind of com.google.cloud:google-cloud-storage to fix CVE-2026-54512, CVE-2026-54513, CVE-2026-54514, CVE-2026-54515, CVE-2026-54518, CVE-2026-59888, CVE-2026-59889 -->
                 <groupId>com.fasterxml.jackson</groupId>
                 <artifactId>jackson-bom</artifactId>
-                <version>2.22.1</version>
+                <version>2.22.2</version>
                 <scope>import</scope>
                 <type>pom</type>
             </dependency>
@@ -80,7 +80,7 @@
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-params</artifactId>
             <!-- Version 6 requires Java 17 -->
-            <version>5.14.4</version>
+            <version>6.1.3</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -93,7 +93,7 @@
             <groupId>nl.jqno.equalsverifier</groupId>
             <artifactId>equalsverifier</artifactId>
             <!-- Version 4 requires Java 17 -->
-            <version>3.19.4</version>
+            <version>4.5</version>
             <scope>test</scope>
         </dependency>
         <!--Integration test dependencies-->
@@ -208,7 +208,7 @@
     <parent>
         <artifactId>google-cloud-storage-document-files-virtual-schema-generated-parent</artifactId>
         <groupId>com.exasol</groupId>
-        <version>3.1.0</version>
+        <version>3.1.1</version>
         <relativePath>pk_generated_parent.pom</relativePath>
     </parent>
 </project>
