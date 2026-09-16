@@ -1,16 +1,16 @@
-# Virtual Schema for Document Data in Files on Google Cloud Storage 3.1.1, released 2026-??-??
+# Virtual Schema for Document Data in Files on Google Cloud Storage 3.1.1, released 2026-09-16
 
-Code name: Fixed vulnerabilities CVE-2026-73334, CVE-2026-86231, CVE-2026-87795, CVE-2026-87823, CVE-2026-89045
+Code name: Fixed vulnerabilities CVE-2026-73334, CVE-2026-86231, CVE-2026-87795, CVE-2026-87823, CVE-2026-89045, CVE-2026-19032, CVE-2026-68497
 
 ## Summary
 
-This release fixes the following 5 vulnerabilities:
+This release fixes the following 7 vulnerabilities:
 
 ### CVE-2026-73334 (CWE-20) in dependency `org.apache.parquet:parquet-hadoop:jar:1.17.1:compile`
-Potential problem for users of theÂ org.apache.parquet.crypto.keytools package in Apache Parquet, versions 1.12 to 1.18. 
+Potential problem for users of theÂ org.apache.parquet.crypto.keytools package in Apache Parquet, versions 1.12 to 1.18.
 This package enables users to encrypt Parquet files via an envelope encryption mechanism that wraps (encrypts) data keys via a Key Management Service (KMS).Â 
 On the reader side, the KMS URL can be application-controlled or file-controlled.
-If the user does not leverage application control for this parameter, a file-controlled KMS URL is forwarded to a pluggable KmsClient implementation. 
+If the user does not leverage application control for this parameter, a file-controlled KMS URL is forwarded to a pluggable KmsClient implementation.
 If the pluggable implementation does not perform host validation, a KMS token can be sent to a malicious host set by an attacker in the file.
 
 Before the problem is fixed, users are recommended toÂ leverage application control for KMS URL parameter in readers (versions 1.12-1.18).
@@ -55,8 +55,24 @@ zstd-jni versions 1.4.8-4 through 1.5.7-13 fail to validate negative length para
 * https://github.com/luben/zstd-jni/releases/tag/v1.5.7-14
 * https://github.com/luben/zstd-jni/security/advisories/GHSA-9jx2-gfp9-phfm
 
+### CVE-2026-19032 (CWE-470) in dependency `com.fasterxml.jackson.core:jackson-databind:jar:2.22.1:compile`
+com.fasterxml.jackson.core/jackson-databind - Unrestricted URI schemes in Path deserialization
+#### References
+* https://guide.sonatype.com/vulnerability/CVE-2026-19032?component-type=maven&component-name=com.fasterxml.jackson.core%2Fjackson-databind&utm_source=ossindex-client&utm_medium=integration&utm_content=1.8.1
+* http://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2026-19032
+* https://github.com/FasterXML/jackson-databind/pull/6129
+
+### CVE-2026-68497 (CWE-770) in dependency `com.fasterxml.jackson.core:jackson-databind:jar:2.22.1:compile`
+jackson-databind - Allocation of Resources Without Limits or Throttling
+#### References
+* https://guide.sonatype.com/vulnerability/CVE-2026-68497?component-type=maven&component-name=com.fasterxml.jackson.core%2Fjackson-databind&utm_source=ossindex-client&utm_medium=integration&utm_content=1.8.1
+* http://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2026-68497
+* https://github.com/FasterXML/jackson-databind/pull/6127
+
 ## Security
 
+* #96: Fixed vulnerability CVE-2026-19032 in dependency `com.fasterxml.jackson.core:jackson-databind:jar:2.22.1:compile`
+* #97: Fixed vulnerability CVE-2026-68497 in dependency `com.fasterxml.jackson.core:jackson-databind:jar:2.22.1:compile`
 * #99: Fixed vulnerability CVE-2026-73334 in dependency `org.apache.parquet:parquet-hadoop:jar:1.17.1:compile`
 * #100: Fixed vulnerability CVE-2026-86231 in dependency `com.github.mwiede:jsch:jar:2.28.4:test`
 * #101: Fixed vulnerability CVE-2026-87795 in dependency `com.github.luben:zstd-jni:jar:1.5.7-3:compile`
@@ -67,14 +83,22 @@ zstd-jni versions 1.4.8-4 through 1.5.7-13 fail to validate negative length para
 
 ### Compile Dependency Updates
 
+* Updated `com.exasol:virtual-schema-common-document-files:9.1.0` to `9.1.1`
 * Updated `com.google.cloud:google-cloud-storage:2.71.0` to `2.73.0`
 
 ### Test Dependency Updates
 
-* Updated `nl.jqno.equalsverifier:equalsverifier:3.19.4` to `4.5.2`
-* Updated `org.junit.jupiter:junit-jupiter-params:5.14.4` to `6.1.3`
+* Updated `com.exasol:exasol-test-setup-abstraction-java:3.0.0` to `3.0.1`
+* Updated `com.exasol:hamcrest-resultset-matcher:1.7.3` to `1.7.4`
+* Updated `com.exasol:test-db-builder-java:4.0.2` to `4.0.3`
+* Updated `com.exasol:virtual-schema-common-document-files:9.1.0` to `9.1.1`
 * Updated `org.slf4j:slf4j-jdk14:2.0.18` to `2.0.19`
 
 ### Plugin Dependency Updates
 
+* Updated `com.exasol:error-code-crawler-maven-plugin:2.1.0` to `2.1.1`
 * Updated `com.exasol:project-keeper-maven-plugin:5.7.4` to `5.7.5`
+* Updated `io.github.git-commit-id:git-commit-id-maven-plugin:10.0.0` to `10.0.1`
+* Updated `org.apache.maven.plugins:maven-jar-plugin:3.5.0` to `3.5.1`
+* Updated `org.apache.maven.plugins:maven-toolchains-plugin:3.2.0` to `3.3.0`
+* Updated `org.codehaus.mojo:flatten-maven-plugin:1.7.3` to `1.8.0`

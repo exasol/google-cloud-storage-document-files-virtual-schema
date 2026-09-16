@@ -7,7 +7,7 @@
     <description>Adapter for document data access from files from Google Cloud Storage.</description>
     <url>https://github.com/exasol/google-cloud-storage-document-files-virtual-schema/</url>
     <properties>
-        <vs-common-document-files.version>9.1.0</vs-common-document-files.version>
+        <vs-common-document-files.version>9.1.1</vs-common-document-files.version>
     </properties>
     <profiles>
         <profile>
@@ -80,7 +80,7 @@
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-params</artifactId>
             <!-- Version 6 requires Java 17 -->
-            <version>6.1.3</version>
+            <version>5.14.4</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -93,7 +93,7 @@
             <groupId>nl.jqno.equalsverifier</groupId>
             <artifactId>equalsverifier</artifactId>
             <!-- Version 4 requires Java 17 -->
-            <version>4.5.2</version>
+            <version>3.19.4</version>
             <scope>test</scope>
         </dependency>
         <!--Integration test dependencies-->
@@ -106,7 +106,7 @@
         <dependency>
             <groupId>com.exasol</groupId>
             <artifactId>test-db-builder-java</artifactId>
-            <version>4.0.2</version>
+            <version>4.0.3</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -118,13 +118,13 @@
         <dependency>
             <groupId>com.exasol</groupId>
             <artifactId>hamcrest-resultset-matcher</artifactId>
-            <version>1.7.3</version>
+            <version>1.7.4</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>com.exasol</groupId>
             <artifactId>exasol-test-setup-abstraction-java</artifactId>
-            <version>3.0.0</version>
+            <version>3.0.1</version>
             <scope>test</scope>
         </dependency>
         <dependency>
