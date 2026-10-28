@@ -25,7 +25,7 @@ import com.exasol.udfdebugging.UdfTestSetup;
 
 import jakarta.json.*;
 
-public class IntegrationTestSetup implements AutoCloseable {
+public final class IntegrationTestSetup implements AutoCloseable {
     private static final Logger LOG = Logger.getLogger(IntegrationTestSetup.class.getName());
 
     private static final String ADAPTER_JAR = "document-files-virtual-schema-dist-10.0.1-google-cloud-storage-3.1.1.jar";

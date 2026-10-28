@@ -25,6 +25,7 @@ This release upgrades `virtual-schema-common-document-files` to version 10.0.1 a
 * Updated `nl.jqno.equalsverifier:equalsverifier:3.19.4` to `4.5.2`
 * Updated `org.junit.jupiter:junit-jupiter-params:5.14.4` to `6.1.3`
 * Updated `org.mockito:mockito-core:5.23.0` to `5.24.0`
+* Added `org.objenesis:objenesis:3.6`
 * Updated `org.slf4j:slf4j-jdk14:2.0.18` to `2.0.20`
 
 ### Plugin Dependency Updates
