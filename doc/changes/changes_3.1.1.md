@@ -1,12 +1,46 @@
-# Virtual Schema for Document Data in Files on Google Cloud Storage 3.1.1, released 2026-??-??
+# Virtual Schema for Document Data in Files on Google Cloud Storage 3.1.1, released 2026-10-28
 
 Code name: Fix vulnerabilities
 
 ## Summary
 
 This release upgrades `virtual-schema-common-document-files` to version 10.0.1 and updates the Google Cloud Storage dependency chain, fixing known security vulnerabilities. Java 17 is now required to build and run this Virtual Schema.
+
+Exasol 8 is no longer supported.
+
 ## Features
 
+## Security
+
+* #96
+* #97
+* #99
+* #100
+* #101
+* #102
+* #103
+* #105
+* #106
+* #107
+* #108
+* #109
+* #111
+* #112
+* #113
+* #114
+* #116
+* #118
+* #119
+* #121
+* #122
+* #123
+* #124
+* #125
+* #126
+* #127
+* #128
+* #129
+* #131
 
 ## Dependency Updates
 
