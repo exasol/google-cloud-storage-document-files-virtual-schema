@@ -10,35 +10,18 @@ Exasol 8 is no longer supported.
 
 ## Security
 
-* #96
-* #97
-* #99
-* #100
-* #101
-* #102
-* #103
-* #105
-* #106
-* #107
-* #108
-* #109
-* #111
-* #112
-* #113
-* #114
-* #116
-* #118
-* #119
-* #121
-* #122
-* #123
-* #124
-* #125
-* #126
-* #127
-* #128
-* #129
-* #131
+* #96: Fixed CVE-2026-19032 (unrestricted URI schemes) in `com.fasterxml.jackson.core:jackson-databind:2.22.1`.
+* #97: Fixed CVE-2026-68497 (unbounded allocation) in `com.fasterxml.jackson.core:jackson-databind:2.22.1`.
+* #99: Fixed CVE-2026-73334 (untrusted KMS URL) in `org.apache.parquet:parquet-hadoop:1.17.1`.
+* #100: Fixed CVE-2026-86231 (certificate-revocation bypass) in `com.github.mwiede:jsch:2.28.4`.
+* #101, #102, #103: Fixed CVE-2026-87795, CVE-2026-87823, and CVE-2026-89045 (native bounds and loop flaws) in `com.github.luben:zstd-jni:1.5.7-3`.
+* #105, #106, #107, #131: Fixed CVE-2026-91776, CVE-2026-91777, CVE-2026-83557, and CVE-2026-110879 (deserialization resource exhaustion) in `com.fasterxml.jackson.core:jackson-databind:2.22.1`.
+* #108, #111, #112, #118, #119: Fixed CVE-2026-90559, CVE-2026-93451, CVE-2026-93452, CVE-2026-108104, and CVE-2026-108106 (native buffer and allocation flaws) in `org.xerial.snappy:snappy-java:1.1.10.7`.
+* #109, #113, #114: Fixed CVE-2026-68498, CVE-2026-89407, and CVE-2026-89425 (parser resource exhaustion) in `com.fasterxml.jackson.core:jackson-core:2.22.1`.
+* #116: Fixed CVE-2026-104880 (CSV interpretation conflict) in `de.siegmar:fastcsv:3.7.0`.
+* #121, #122: Fixed CVE-2026-110262 and CVE-2026-110270 (bytecode memory exhaustion) in `org.ow2.asm:asm-commons:9.10.1`.
+* #123, #124, #125, #126, #127, #128: Fixed CVE-2026-110257, CVE-2026-110258, CVE-2026-110259, CVE-2026-110260, CVE-2026-110261, and CVE-2026-110263 (crafted-bytecode denial of service) in `org.ow2.asm:asm:9.10.1`.
+* #129: Fixed CVE-2026-102554 (unbounded deserialization allocation) in `com.google.guava:guava:33.6.0-jre`.
 
 ## Dependency Updates
 
