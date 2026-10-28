@@ -1,4 +1,4 @@
-# Virtual Schema for Document Data in Files on Google Cloud Storage 3.1.1, released 2026-10-28
+# Virtual Schema for Document Data in Files on Google Cloud Storage 3.1.1, released 2026-10-29
 
 Code name: Fix vulnerabilities
 
