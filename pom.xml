@@ -182,6 +182,9 @@
                 <artifactId>maven-assembly-plugin</artifactId>
                 <groupId>org.apache.maven.plugins</groupId>
                 <configuration>
+                    <descriptors combine.self="override">
+                        <descriptor>src/assembly/linux-x86_64-dependencies.xml</descriptor>
+                    </descriptors>
                     <finalName>document-files-virtual-schema-dist-${vs-common-document-files.version}-google-cloud-storage-${project.version}</finalName>
                 </configuration>
             </plugin>

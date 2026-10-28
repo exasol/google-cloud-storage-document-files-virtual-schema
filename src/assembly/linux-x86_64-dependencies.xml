@@ -1,0 +1,57 @@
+<assembly xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/ASSEMBLY/2.0.0"
+          xsi:schemaLocation="http://maven.apache.org/ASSEMBLY/2.0.0 http://maven.apache.org/xsd/assembly-2.0.0.xsd">
+    <id>linux-x86_64-dependencies</id>
+    <formats>
+        <format>jar</format>
+    </formats>
+    <includeBaseDirectory>false</includeBaseDirectory>
+    <containerDescriptorHandlers>
+        <containerDescriptorHandler>
+            <handlerName>metaInf-services</handlerName>
+        </containerDescriptorHandler>
+    </containerDescriptorHandlers>
+    <dependencySets>
+        <dependencySet>
+            <unpack>true</unpack>
+            <scope>runtime</scope>
+            <outputDirectory>/</outputDirectory>
+            <unpackOptions>
+                <excludes>
+                    <exclude>module-info.class</exclude>
+                    <exclude>**/module-info.class</exclude>
+                    <!-- The adapter runs in the Linux x86_64 Exasol UDF environment. -->
+                    <exclude>META-INF/native/*aarch_64*</exclude>
+                    <exclude>META-INF/native/*osx*</exclude>
+                    <exclude>META-INF/native/*windows*</exclude>
+                    <exclude>aix/**</exclude>
+                    <exclude>darwin/**</exclude>
+                    <exclude>freebsd/**</exclude>
+                    <exclude>win/**</exclude>
+                    <exclude>linux/aarch64/**</exclude>
+                    <exclude>linux/arm/**</exclude>
+                    <exclude>linux/i386/**</exclude>
+                    <exclude>linux/loongarch64/**</exclude>
+                    <exclude>linux/mips64/**</exclude>
+                    <exclude>linux/ppc64/**</exclude>
+                    <exclude>linux/ppc64le/**</exclude>
+                    <exclude>linux/riscv64/**</exclude>
+                    <exclude>linux/s390x/**</exclude>
+                    <exclude>org/xerial/snappy/native/FreeBSD/**</exclude>
+                    <exclude>org/xerial/snappy/native/Mac/**</exclude>
+                    <exclude>org/xerial/snappy/native/SunOS/**</exclude>
+                    <exclude>org/xerial/snappy/native/Windows/**</exclude>
+                    <exclude>org/xerial/snappy/native/Linux/android-*/**</exclude>
+                    <exclude>org/xerial/snappy/native/Linux/aarch64/**</exclude>
+                    <exclude>org/xerial/snappy/native/Linux/arm*/**</exclude>
+                    <exclude>org/xerial/snappy/native/Linux/loongarch64/**</exclude>
+                    <exclude>org/xerial/snappy/native/Linux/ppc/**</exclude>
+                    <exclude>org/xerial/snappy/native/Linux/ppc64/**</exclude>
+                    <exclude>org/xerial/snappy/native/Linux/ppc64le/**</exclude>
+                    <exclude>org/xerial/snappy/native/Linux/riscv64/**</exclude>
+                    <exclude>org/xerial/snappy/native/Linux/s390x/**</exclude>
+                    <exclude>org/xerial/snappy/native/Linux/x86/**</exclude>
+                </excludes>
+            </unpackOptions>
+        </dependencySet>
+    </dependencySets>
+</assembly>
