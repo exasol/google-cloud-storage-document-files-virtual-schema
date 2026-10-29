@@ -53,3 +53,8 @@ Exasol 8 is no longer supported.
 * Updated `org.apache.maven.plugins:maven-failsafe-plugin:3.5.6` to `3.6.0`
 * Updated `org.apache.maven.plugins:maven-install-plugin:3.1.4` to `3.2.0`
 * Updated `org.apache.maven.plugins:maven-jar-plugin:3.5.0` to `3.5.1`
+* Updated `org.apache.maven.plugins:maven-surefire-plugin:3.5.6` to `3.6.0`
+* Updated `org.apache.maven.plugins:maven-toolchains-plugin:3.2.0` to `3.3.0`
+* Updated `org.codehaus.mojo:flatten-maven-plugin:1.7.3` to `1.8.0`
+* Updated `org.codehaus.mojo:versions-maven-plugin:2.21.0` to `2.23.0`
+* Updated `org.sonarsource.scanner.maven:sonar-maven-plugin:5.7.0.6970` to `5.8.0.7211`
