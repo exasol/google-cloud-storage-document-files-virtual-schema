@@ -7,7 +7,6 @@
     <description>Adapter for document data access from files from Google Cloud Storage.</description>
     <url>https://github.com/exasol/google-cloud-storage-document-files-virtual-schema/</url>
     <properties>
-        <!-- virtual-schema-common-document-files 10 requires Java 17 -->
         <java.version>17</java.version>
         <vs-common-document-files.version>10.0.1</vs-common-document-files.version>
     </properties>
@@ -105,7 +104,6 @@
         <dependency>
             <groupId>nl.jqno.equalsverifier</groupId>
             <artifactId>equalsverifier</artifactId>
-            <!-- Version 4 requires Java 17 -->
             <version>4.5.2</version>
             <scope>test</scope>
         </dependency>
@@ -182,9 +180,6 @@
                 <artifactId>maven-assembly-plugin</artifactId>
                 <groupId>org.apache.maven.plugins</groupId>
                 <configuration>
-                    <descriptors combine.self="override">
-                        <descriptor>src/assembly/linux-x86_64-dependencies.xml</descriptor>
-                    </descriptors>
                     <finalName>document-files-virtual-schema-dist-${vs-common-document-files.version}-google-cloud-storage-${project.version}</finalName>
                 </configuration>
             </plugin>
